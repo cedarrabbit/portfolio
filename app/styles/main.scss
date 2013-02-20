@@ -1,0 +1,207 @@
+@import "compass_twitter_bootstrap";
+
+body,
+.container {
+	width: 100%;
+	height: 100%;
+	font-family: pt-sans-narrow, serif;
+}
+
+header {
+	position: relative;
+	z-index: 1;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	width: 75%;
+	height: 50px;
+
+	.dropdown {
+		min-width: 115px;
+		list-style: none;
+		font-size: 13px;
+		color: rgb(153,153,153);
+
+		.head {
+			height: 44px;
+			padding: 4px 0 0 10px;
+			// height: 20px;
+			// padding: 24px 0 0 10px;
+			// line-height: 13px;
+			background: rgba(238,238,238,.6);
+			border: none;
+			margin-bottom: 18px;
+			font-size: 14px;
+			cursor: pointer;
+
+			.filter {
+				font-style: italic;
+				color: red;
+			}
+		}
+
+		li {
+			display: none;
+			height: 40px;
+			margin-bottom: 2px;
+			border-bottom: 1px solid rgba(238,238,238,1);
+			line-height: 40px;
+			padding-left: 10px;
+			cursor: pointer;
+		}
+
+		li:hover {
+			color: red;
+		};
+	}
+
+	.owner {
+		height: 40px;
+		font-size: 22px;
+		color: rgb(100,100,100);
+		// border-left: 3px solid black;
+		padding: 10px 0 0 10px;
+		line-height: 10px;
+		margin-left: 40px;
+
+		p:last-of-type {
+			font-size: 13px;
+			color: rgb(100,100,100);
+		}
+	}
+}
+
+
+
+.dropdown_opened {
+	opacity: .1;
+}
+
+.projects {
+	position: absolute;
+	top: 80px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	opacity: 0;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+}
+
+#isotope_container {
+	margin: 0 auto 20px;
+}
+
+.project {
+	width: 300px;
+	height: 200px;
+	background: rgba(0,0,0,.1);
+	margin: 5px;
+}
+
+.detail {
+	position: absolute;
+	top: 80px;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+	opacity: 0;
+	-webkit-transition: .5s .2s;
+
+	div {
+		width: 100%;
+		height: 500px;
+		margin: 0 auto;
+		background: rgba(45,45,45,1);
+		-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	}
+}
+
+.detail_visible {
+	-webkit-transform: scale(.9);
+	opacity: 1;
+}
+
+
+
+
+
+
+
+
+.visible {
+	opacity: 1;
+}
+
+.disabled {
+	opacity: .2;
+	-webkit-transform: scale(.8);
+	-webkit-transition: .5s;
+	-moz-transform: scale(.8);
+	-moz-transition: .5s;
+	// pointer-events: none;
+}
+
+.blurred {
+}
+
+
+
+@-webkit-keyframes myfirst 
+{
+	0% {background:rgba(238,238,238,1)}
+	50% {background:rgba(238,238,238,.6)}
+}
+.filtered {
+	-webkit-animation: myfirst .5s infinite;
+}
+
+
+
+
+
+
+
+
+// ISOTOPE ANIMATING
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.2s;
+     -moz-transition-duration: 0.2s;
+      -ms-transition-duration: 0.2s;
+       -o-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}

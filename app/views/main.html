@@ -1,0 +1,33 @@
+<header>
+	<ul class="dropdown">
+		<div class="head" menu>YEAR<div class="filter">{{filters.year}}</div></div>
+		<li ng-repeat='year in filter_year' ng-click="filter('year',year)">{{year}}</li>
+	</ul>
+	<ul class="dropdown">
+		<div class="head" menu>PLATFORM<div class="filter">{{filters.platform}}</div></div>
+		<li ng-repeat='platform in filter_platform' ng-click="filter('platform',platform)">{{platform}}</li>
+	</ul>
+	<ul class="dropdown">
+		<div class="head" menu>FORMAT<div class="filter">{{filters.format}}</div></div>
+		<li ng-repeat='format in filter_format' ng-click="filter('format',format)">{{format}}</li>
+	</ul>
+	<ul class="dropdown">
+		<div class="head" menu>CLIENT<div class="filter">{{filters.client}}</div></div>
+		<li ng-repeat='client in filter_client' ng-click="filter('client',client)">{{client}}</li>
+	</ul>
+	<div class="owner">
+		<p class="title_1" ng-click="selectedProject=false">JOSHUA DANIEL</p>
+		<p class="title_2">UI/UX DESIGNER & DEVELOPER</p>
+	</div>
+</header>
+
+<section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
+	<div id="isotope_container">
+		<div class="project" project ng-repeat="project in projects" ng-class="{opened:selectedProjectX==project}" ng-click="selectProject(project)"></div>
+	</div>
+</section>
+
+<section class="detail" ng-class="{detail_visible:selectedProject}">
+	<div></div>
+</section>
+
