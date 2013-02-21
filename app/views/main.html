@@ -1,25 +1,26 @@
 <header>
-	<ul class="dropdown">
-		<div class="head" menu>YEAR<div class="filter">{{filters.year}}</div></div>
-		<li ng-repeat='year in filter_year' ng-click="filter('year',year)">{{year}}</li>
-	</ul>
-	<ul class="dropdown">
-		<div class="head" menu>PLATFORM<div class="filter">{{filters.platform}}</div></div>
-		<li ng-repeat='platform in filter_platform' ng-click="filter('platform',platform)">{{platform}}</li>
-	</ul>
-	<ul class="dropdown">
-		<div class="head" menu>FORMAT<div class="filter">{{filters.format}}</div></div>
-		<li ng-repeat='format in filter_format' ng-click="filter('format',format)">{{format}}</li>
-	</ul>
-	<ul class="dropdown">
-		<div class="head" menu>CLIENT<div class="filter">{{filters.client}}</div></div>
-		<li ng-repeat='client in filter_client' ng-click="filter('client',client)">{{client}}</li>
-	</ul>
 	<div class="owner">
 		<p class="title_1" ng-click="selectedProject=false">JOSHUA DANIEL</p>
 		<p class="title_2">UI/UX DESIGNER & DEVELOPER</p>
 	</div>
 </header>
+
+<div class="filter_button" ng-click="filtering=!filtering"><span ng-class="{close:filtering}">+</span></div>
+
+<div class="filters" ng-class="{visible:filtering}">
+	<ul class="dropdown">
+		<li ng-repeat="year in filter_year">{{year}}</li>
+	</ul>
+	<ul class="dropdown">
+		<li ng-repeat="format in filter_format">{{format}}</li>
+	</ul>
+	<ul class="dropdown">
+		<li ng-repeat="platform in filter_platform">{{platform}}</li>
+	</ul>
+	<ul class="dropdown">
+		<li ng-repeat="client in filter_client">{{client}}</li>
+	</ul>
+</div>
 
 <section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
 	<div id="isotope_container">
@@ -30,4 +31,3 @@
 <section class="detail" ng-class="{detail_visible:selectedProject}">
 	<div></div>
 </section>
-

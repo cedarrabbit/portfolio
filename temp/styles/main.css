@@ -6142,7 +6142,7 @@ body,
   font-family: pt-sans-narrow, serif;
 }
 
-/* line 10, ../../app/styles/main.scss */
+/* line 11, ../../app/styles/main.scss */
 header {
   position: relative;
   z-index: 1;
@@ -6153,43 +6153,7 @@ header {
   width: 75%;
   height: 50px;
 }
-/* line 20, ../../app/styles/main.scss */
-header .dropdown {
-  min-width: 115px;
-  list-style: none;
-  font-size: 13px;
-  color: #999999;
-}
-/* line 26, ../../app/styles/main.scss */
-header .dropdown .head {
-  height: 44px;
-  padding: 4px 0 0 10px;
-  background: rgba(238, 238, 238, 0.6);
-  border: none;
-  margin-bottom: 18px;
-  font-size: 14px;
-  cursor: pointer;
-}
-/* line 38, ../../app/styles/main.scss */
-header .dropdown .head .filter {
-  font-style: italic;
-  color: red;
-}
-/* line 44, ../../app/styles/main.scss */
-header .dropdown li {
-  display: none;
-  height: 40px;
-  margin-bottom: 2px;
-  border-bottom: 1px solid #eeeeee;
-  line-height: 40px;
-  padding-left: 10px;
-  cursor: pointer;
-}
-/* line 54, ../../app/styles/main.scss */
-header .dropdown li:hover {
-  color: red;
-}
-/* line 59, ../../app/styles/main.scss */
+/* line 21, ../../app/styles/main.scss */
 header .owner {
   height: 40px;
   font-size: 22px;
@@ -6198,18 +6162,69 @@ header .owner {
   line-height: 10px;
   margin-left: 40px;
 }
-/* line 68, ../../app/styles/main.scss */
+/* line 30, ../../app/styles/main.scss */
 header .owner p:last-of-type {
   font-size: 13px;
   color: #646464;
 }
 
-/* line 77, ../../app/styles/main.scss */
-.dropdown_opened {
-  opacity: .1;
+/* line 37, ../../app/styles/main.scss */
+.filters {
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  margin-top: 50px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 1s;
+}
+/* line 45, ../../app/styles/main.scss */
+.filters .dropdown {
+  width: 115px;
+  list-style: none;
+  font-size: 13px;
+  color: #999999;
+}
+/* line 51, ../../app/styles/main.scss */
+.filters .dropdown li {
+  height: 40px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #eeeeee;
+  line-height: 40px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+/* line 60, ../../app/styles/main.scss */
+.filters .dropdown li:hover {
+  color: red;
 }
 
-/* line 81, ../../app/styles/main.scss */
+/* line 66, ../../app/styles/main.scss */
+.filter_button {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  background: orange;
+}
+/* line 78, ../../app/styles/main.scss */
+.filter_button span {
+  display: block;
+  line-height: 28px;
+  font-size: 28px;
+  pointer-events: none;
+  -webkit-transition: .2s;
+}
+/* line 86, ../../app/styles/main.scss */
+.filter_button .close {
+  -webkit-transform: rotate(45deg);
+}
+
+/* line 91, ../../app/styles/main.scss */
 .projects {
   position: absolute;
   top: 80px;
@@ -6224,12 +6239,12 @@ header .owner p:last-of-type {
   -moz-transition: .5s;
 }
 
-/* line 95, ../../app/styles/main.scss */
+/* line 105, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto 20px;
 }
 
-/* line 99, ../../app/styles/main.scss */
+/* line 109, ../../app/styles/main.scss */
 .project {
   width: 300px;
   height: 200px;
@@ -6237,7 +6252,7 @@ header .owner p:last-of-type {
   margin: 5px;
 }
 
-/* line 106, ../../app/styles/main.scss */
+/* line 116, ../../app/styles/main.scss */
 .detail {
   position: absolute;
   top: 80px;
@@ -6247,7 +6262,7 @@ header .owner p:last-of-type {
   opacity: 0;
   -webkit-transition: .5s .2s;
 }
-/* line 115, ../../app/styles/main.scss */
+/* line 125, ../../app/styles/main.scss */
 .detail div {
   width: 100%;
   height: 500px;
@@ -6256,18 +6271,19 @@ header .owner p:last-of-type {
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 124, ../../app/styles/main.scss */
+/* line 134, ../../app/styles/main.scss */
 .detail_visible {
   -webkit-transform: scale(0.9);
   opacity: 1;
 }
 
-/* line 136, ../../app/styles/main.scss */
+/* line 146, ../../app/styles/main.scss */
 .visible {
   opacity: 1;
+  pointer-events: all;
 }
 
-/* line 140, ../../app/styles/main.scss */
+/* line 151, ../../app/styles/main.scss */
 .disabled {
   opacity: .2;
   -webkit-transform: scale(0.8);
@@ -6277,23 +6293,23 @@ header .owner p:last-of-type {
 }
 
 @-webkit-keyframes myfirst {
-  /* line 156, ../../app/styles/main.scss */
+  /* line 166, ../../app/styles/main.scss */
   0% {
     background: #eeeeee;
   }
 
-  /* line 157, ../../app/styles/main.scss */
+  /* line 167, ../../app/styles/main.scss */
   50% {
     background: rgba(238, 238, 238, 0.6);
   }
 }
 
-/* line 159, ../../app/styles/main.scss */
+/* line 169, ../../app/styles/main.scss */
 .filtered {
   -webkit-animation: myfirst .5s infinite;
 }
 
-/* line 172, ../../app/styles/main.scss */
+/* line 182, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6304,7 +6320,7 @@ header .owner p:last-of-type {
   transition-duration: 0.2s;
 }
 
-/* line 181, ../../app/styles/main.scss */
+/* line 191, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6313,7 +6329,7 @@ header .owner p:last-of-type {
   transition-property: height, width;
 }
 
-/* line 189, ../../app/styles/main.scss */
+/* line 199, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6323,7 +6339,7 @@ header .owner p:last-of-type {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 201, ../../app/styles/main.scss */
+/* line 211, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {

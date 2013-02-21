@@ -6,10 +6,10 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
 	$scope.filtering = false;
 	$scope.filters = {year:'All',platform:'All',format:'All',client:'All'};
-	$scope.filter_year = ['All',2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997];
-	$scope.filter_platform = ['All','iOS','Android','HTML5','Air','Flash','Flex','Director'];
-	$scope.filter_format = ['All','Mobile App','Web App','Desktop App','Website','CDROM'];
-	$scope.filter_client = ['All','Accenture','Barclays','FuelQuest','FINRA','McGraw-Hill','McDonalds','NASA','Huawei','Parrimark'];
+	$scope.filter_year = [2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997];
+	$scope.filter_platform = ['iOS','Android','HTML5','Air','Flash','Flex','Director'];
+	$scope.filter_format = ['Mobile App','Web App','Desktop App','Website','CDROM'];
+	$scope.filter_client = ['Accenture','Barclays','FuelQuest','FINRA','McGraw-Hill','McDonalds','NASA','Huawei','Parrimark'];
 
 	$scope.projects = [
 		{id:'p1',date:'2012',platform:'iOS',format:'Mobile App',client:'Accenture'},
@@ -54,7 +54,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.filter = function(type,val) {
 		if(val == 'All')
 			isotope_container.isotope({filter:'*'})
-			else
+		else
 			isotope_container.isotope({filter:'.'+String(val).replace(/ /g,'')})
 
 		$scope.filters[type] = val;
@@ -65,6 +65,5 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		if(!$scope.filtering)
 			$scope.selectedProject = project;
 	}
-
 
 });
