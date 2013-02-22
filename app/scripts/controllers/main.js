@@ -4,13 +4,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
 	var isotope_container = $('#isotope_container');
 
-	$scope.filtering = false;
-	$scope.filters = {year:'All',platform:'All',format:'All',client:'All'};
-	$scope.filter_year = [2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997];
-	$scope.filter_platform = ['iOS','Android','HTML5','Air','Flash','Flex','Director'];
-	$scope.filter_format = ['Mobile App','Web App','Desktop App','Website','CDROM'];
-	$scope.filter_client = ['Accenture','Barclays','FuelQuest','FINRA','McGraw-Hill','McDonalds','NASA','Huawei','Parrimark'];
-
 	$scope.projects = [
 		{id:'p1',date:'2012',platform:'iOS',format:'Mobile App',client:'Accenture'},
 		{id:'p2',date:'2012',platform:'Android',format:'Mobile App',client:'Barclays'},
@@ -35,35 +28,51 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		{id:'p8',date:'1997',platform:'iOS',format:'Mobile App',client:'Huawei'}
 	];
 
+	$scope.filtering = false;
+	$scope.filters = [];
+	$scope.filter_year = [2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997];
+	$scope.filter_platform = ['iOS','Android','HTML5','Air','Flash','Flex','Director'];
+	$scope.filter_format = ['Mobile App','Web App','Desktop App','Website','CDROM'];
+	$scope.filter_client = ['Accenture','Barclays','FuelQuest','FINRA','McGraw-Hill','McDonalds','NASA','Huawei','Parrimark'];
+	$scope.filtered_total = $scope.projects.length;
+
 	$timeout(function(){
 		isotope_container.isotope({
+			itemSelector: '.project',
 			animationEngine: 'css'
 		})
 
 		$scope.contentReady = true;
 	},1000);
 
-	$scope.endFiltering = function() {
-		if($scope.filtering)
-		{
-			$scope.filtering = false;
-			$('.dropdown li').css('display','none');
+	$scope.filter = function(event,val) {
+		var el = $(event.target);
+		var className = '.'+String(val).replace(/ /g,'');
+
+		if(el.hasClass('selected'))	{
+			$scope.filters.splice($scope.filters.indexOf(className),1);
+			el.removeClass('selected');
+		} else {
+			$scope.filters.push(className)
+			el.addClass('selected');
 		}
-	}
 
-	$scope.filter = function(type,val) {
-		if(val == 'All')
-			isotope_container.isotope({filter:'*'})
-		else
-			isotope_container.isotope({filter:'.'+String(val).replace(/ /g,'')})
+		isotope_container.isotope({filter:$scope.filters.join()})
 
-		$scope.filters[type] = val;
-		$scope.endFiltering();
+		// isotope-hidden
+		$scope.filtered_total = $('.project').not('.isotope-hidden').length;
 	}
 
 	$scope.selectProject = function(project) {
 		if(!$scope.filtering)
 			$scope.selectedProject = project;
+	}
+
+	$scope.clearFilters = function() {
+		$('.dropdown li').removeClass('selected');
+
+		$scope.filters = [];
+		isotope_container.isotope({filter:'*'});
 	}
 
 });

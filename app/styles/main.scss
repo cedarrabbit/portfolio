@@ -5,6 +5,8 @@ body,
 	width: 100%;
 	height: 100%;
 	font-family: pt-sans-narrow, serif;
+	-webkit-user-select: none;
+	cursor: default;
 }
 
 
@@ -17,30 +19,34 @@ header {
 	-moz-box-pack: end;
 	width: 75%;
 	height: 50px;
+}
 
-	.owner {
-		height: 40px;
-		font-size: 22px;
-		color: rgb(100,100,100);
-		// border-left: 3px solid black;
-		padding: 10px 0 0 10px;
-		line-height: 10px;
-		margin-left: 40px;
+.owner {
+	height: 40px;
+	position: absolute;
+	top: 14px;
+	right: 250px;
+	font-size: 17px;
+	color: rgb(153,153,153);
+	padding: 10px 0 0 10px;
+	line-height: 10px;
+	margin-left: 40px;
 
-		p:last-of-type {
-			font-size: 13px;
-			color: rgb(100,100,100);
-		}
+	p:last-of-type {
+		font-size: 13px;
+		color: rgba(153,153,153,.5);
 	}
 }
 
 .filters {
 	display: -webkit-box;
 	-webkit-box-pack: center;
-	margin-top: 50px;
+	position: relative;
+	z-index: 1;
+	margin-top: 30px;
 	opacity: 0;
 	pointer-events: none;
-	-webkit-transition: 1s;
+	-webkit-transition: .5s;
 
 	.dropdown {
 		width: 115px;
@@ -49,17 +55,72 @@ header {
 		color: rgb(153,153,153);
 
 		li {
-			height: 40px;
+			height: 36px;
 			margin-bottom: 2px;
-			border-bottom: 1px solid rgba(238,238,238,1);
+			border-top: 1px solid rgba(238,238,238,1);
 			line-height: 40px;
 			padding-left: 10px;
 			cursor: pointer;
 		}
 
 		li:hover {
-			color: red;
+			color: black;
 		};
+	}
+
+	.info {
+		width: 265px;
+		height: 500px;
+		margin-left: 60px;
+
+		.info_header {
+			display: -webkit-box;
+			-webkit-box-align: end;
+			width: 100%;
+			height: 118px;
+			border-bottom: 1px solid rgb(238,238,238);
+			color: rgb(153,153,153);
+			padding-bottom: 8px;
+
+			.count {
+				line-height: 80px;
+				font-size: 90px;
+				margin: 0 10px 0 10px;
+			}
+
+			.total {
+				-webkit-box-flex: 1;
+				height: 75px;
+				font-size: 15px;
+			}
+
+			.go_button {
+				display: -webkit-box;
+				-webkit-box-align: center;
+				-webkit-box-pack: center;
+				width: 110px;
+				height: 75px;
+				background: rgb(238,238,238);
+				font-size: 22px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.go_button:hover {
+				color: red;
+			};
+		}
+
+		.project_list {
+			-webkit-box-flex: 1;
+			-webkit-column-count: 2;
+			-webkit-column-gap: 10px;
+			margin: 25px 0 0 10px;
+			font-size: 11px;
+			line-height: 11px;
+			color: rgba(153,153,153,.8);
+			text-transform: uppercase;
+		}
 	}
 }
 
@@ -149,7 +210,7 @@ header {
 }
 
 .disabled {
-	opacity: .2;
+	opacity: .3;
 	-webkit-transform: scale(.8);
 	-webkit-transition: .5s;
 	-moz-transform: scale(.8);
@@ -159,6 +220,9 @@ header {
 .blurred {
 }
 
+.selected {
+	background: orange;
+}
 
 
 @-webkit-keyframes myfirst 

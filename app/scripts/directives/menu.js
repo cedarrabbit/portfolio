@@ -1,14 +1,13 @@
 'use strict';
 
 joshuaApp.directive('menu', function() {
-	var opened = false;
 
 	return {
 		restrict: 'A',
 		link: function postLink(scope, element, attrs) {
 			var el = $(element);
-			el.on('click', function(){
 
+			el.on('click', function(){
 				// close any other opened menus
 				$('.dropdown li').css('display','none');
 
