@@ -1,25 +1,30 @@
 <header>
 </header>
 
-	<div class="owner">
-		<p class="title_1" ng-click="selectedProject=false">JOSHUA DANIEL</p>
-		<p class="title_2">UI/UX Design & Development</p>
+	<div class="hud">
+		<div class="owner">
+			<p class="name">JOSHUA DANIEL</p>
+			<p class="title">UI/UX Design & Development</p>
+		</div>
+		<div class="filter_button" ng-click="filtering=!filtering">
+			<div class="filter_count">{{filtered_total}}</div>
+			<div>
+				<div class="filter_total">/ {{projects.length}}</div>
+				<div class="projects_text">PROJECTS</div>
+			</div>
+		</div>
 	</div>
 
-<div class="filter_hud" ng-click="filtering=!filtering">
+<!-- <div class="filter_hud" ng-click="filtering=!filtering">
 	<div class="filter_count">{{filtered_total}}</div>
 	<div>
 		<div class="filter_total">/ {{projects.length}} PROJECTS</div>
-		<div class="filter_detail">filtered by 2012, 2011 developed in iOS, AIR as a Mobile App, Web App for FINRA, Huawei</div>
 	</div>
-</div>
+</div> -->
 
 <div class="filters" ng-class="{visible:filtering}">
 	<ul class="dropdown">
-		<li menu='year' ng-repeat="year in filter_year" ng-click="filter($event,year)">
-			{{year}}
-			<div>{{test}}</div>
-		</li>
+		<li menu='year' ng-repeat="year in filter_year" ng-click="filter($event,year)">{{year}}<div>{{test}}</div></li>
 	</ul>
 	<ul class="dropdown">
 		<li ng-repeat="format in filter_format" ng-click="filter($event,format)">{{format}}</li>

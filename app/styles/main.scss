@@ -21,21 +21,57 @@ header {
 	height: 50px;
 }
 
-.owner {
+.hud {
+	display: -webkit-box;
 	height: 40px;
 	position: absolute;
 	top: 14px;
-	right: 250px;
-	font-size: 17px;
-	color: rgb(153,153,153);
-	padding: 10px 0 0 10px;
+	left: 30px;
 	line-height: 10px;
-	margin-left: 40px;
 
-	p:last-of-type {
-		font-size: 13px;
-		color: rgba(153,153,153,.5);
+	.owner {
+		border-right: 1px solid rgb(153,153,153);
+		padding: 10px 10px 0 0;
+	
+		.name {
+			font-size: 17px;
+			color: rgb(153,153,153);
+			text-align: right;
+		}
+
+		.title {
+			font-size: 13px;
+			color: rgba(153,153,153,.5);
+		}
+	};
+
+	.filter_button {
+		display: -webkit-box;
+		margin-top: 6px;
+
+		.filter_count {
+			padding: 0 5px 0 10px;
+			font-size: 50px;
+			line-height: 34px;
+			color: rgb(153,153,153);
+			pointer-events: none;
+		}
+
+		.filter_total {
+			font-size: 24px;
+			padding: 4px 0 10px 0;
+			color: rgb(211,210,204);
+			pointer-events: none;
+		}
+
+		.projects_text {
+			font-size: 13px;
+			line-height: 13px;
+			color: rgb(210,210,213);
+			pointer-events: none;
+		}
 	}
+
 }
 
 .filters {
