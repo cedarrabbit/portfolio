@@ -5,8 +5,9 @@ joshuaApp.directive('menu', function() {
 	return {
 		restrict: 'A',
 		link: function postLink(scope, element, attrs) {
-			console.log($('.dropdown li').length);
-			scope.test = 10;
+			// console.log(attrs);
+			// var ar = [2012,2010,2012,2008];
+			// scope.test = _.select(ar, function(val){ return val == 2012}).length;
 			// var el = $(element);
 
 			// el.on('click', function(){

@@ -6144,91 +6144,94 @@ body,
   cursor: default;
 }
 
-/* line 13, ../../app/styles/main.scss */
-header {
-  position: relative;
-  z-index: 1;
-  display: -webkit-box;
-  display: -moz-box;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  width: 75%;
-  height: 50px;
-}
-
-/* line 24, ../../app/styles/main.scss */
-.hud {
-  display: -webkit-box;
-  height: 40px;
+/* line 12, ../../app/styles/main.scss */
+.owner {
   position: absolute;
-  top: 14px;
-  left: 30px;
-  line-height: 10px;
+  top: 35px;
+  right: 195px;
 }
-/* line 32, ../../app/styles/main.scss */
-.hud .owner {
-  border-right: 1px solid #999999;
-  padding: 10px 10px 0 0;
-}
-/* line 36, ../../app/styles/main.scss */
-.hud .owner .name {
+/* line 17, ../../app/styles/main.scss */
+.owner .name {
+  line-height: 17px;
   font-size: 17px;
   color: #999999;
   text-align: right;
 }
-/* line 42, ../../app/styles/main.scss */
-.hud .owner .title {
+/* line 24, ../../app/styles/main.scss */
+.owner .title {
+  line-height: 0px;
   font-size: 13px;
   color: rgba(153, 153, 153, 0.5);
 }
-/* line 48, ../../app/styles/main.scss */
-.hud .filter_button {
-  display: -webkit-box;
-  margin-top: 6px;
+
+/* line 31, ../../app/styles/main.scss */
+.filter_button {
+  position: absolute;
+  top: 15px;
+  left: 75px;
+  cursor: pointer;
 }
-/* line 52, ../../app/styles/main.scss */
-.hud .filter_button .filter_count {
-  padding: 0 5px 0 10px;
-  font-size: 50px;
+/* line 37, ../../app/styles/main.scss */
+.filter_button .filter_numbers {
+  display: -webkit-box;
+  -webkit-box-align: end;
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 42, ../../app/styles/main.scss */
+.filter_button .filter_numbers .filter_count {
+  font-size: 38px;
   line-height: 34px;
   color: #999999;
-  pointer-events: none;
+}
+/* line 49, ../../app/styles/main.scss */
+.filter_button .filter_numbers .filter_total {
+  font-size: 16px;
+  padding: 0 0 1px 8px;
+  color: #d2d2cc;
+}
+/* line 56, ../../app/styles/main.scss */
+.filter_button .filter_text {
+  display: -webkit-box;
+  -webkit-box-align: center;
 }
 /* line 60, ../../app/styles/main.scss */
-.hud .filter_button .filter_total {
-  font-size: 24px;
-  padding: 4px 0 10px 0;
-  color: #d3d2cc;
-  pointer-events: none;
+.filter_button .filter_text .filter_blink {
+  width: 11px;
+  height: 11px;
+  background: #eeeeee;
 }
-/* line 67, ../../app/styles/main.scss */
-.hud .filter_button .projects_text {
-  font-size: 13px;
-  line-height: 13px;
+/* line 66, ../../app/styles/main.scss */
+.filter_button .filter_text .projects_text {
+  padding-left: 6px;
+  font-size: 14px;
   color: #d2d2d5;
-  pointer-events: none;
 }
 
-/* line 77, ../../app/styles/main.scss */
-.filters {
+/* line 74, ../../app/styles/main.scss */
+.filter_hud {
   display: -webkit-box;
   -webkit-box-pack: center;
   position: relative;
   z-index: 1;
-  margin-top: 30px;
+  margin: 100px 40px 0 50px;
   opacity: 0;
   pointer-events: none;
   -webkit-transition: .5s;
 }
-/* line 87, ../../app/styles/main.scss */
-.filters .dropdown {
+/* line 84, ../../app/styles/main.scss */
+.filter_hud .filters {
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+}
+/* line 88, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown {
   width: 115px;
   list-style: none;
   font-size: 13px;
   color: #999999;
 }
-/* line 93, ../../app/styles/main.scss */
-.filters .dropdown li {
+/* line 94, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown li {
   height: 36px;
   margin-bottom: 2px;
   position: relative;
@@ -6237,23 +6240,23 @@ header {
   padding-left: 10px;
   cursor: pointer;
 }
-/* line 102, ../../app/styles/main.scss */
-.filters .dropdown li div {
+/* line 103, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown li div {
   position: absolute;
   top: -14px;
   right: 0;
   font-size: 10px;
   color: #c8c8c8;
 }
-/* line 111, ../../app/styles/main.scss */
-.filters .dropdown li:hover {
+/* line 112, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown li:hover {
   color: black;
 }
-/* line 116, ../../app/styles/main.scss */
-.filters .project_list {
-  -webkit-box-flex: 1;
+/* line 118, ../../app/styles/main.scss */
+.filter_hud .project_list {
   -webkit-column-count: 2;
   -webkit-column-gap: 10px;
+  width: 265px;
   padding: 10px 0 0 10px;
   margin: 0 20px 0 60px;
   border-top: 1px solid #eeeeee;
@@ -6263,29 +6266,7 @@ header {
   text-transform: uppercase;
 }
 
-/* line 130, ../../app/styles/main.scss */
-.filter_hud {
-  display: -webkit-box;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  z-index: 1;
-  padding: 8px;
-  color: #999999;
-}
-/* line 139, ../../app/styles/main.scss */
-.filter_hud .filter_count {
-  line-height: 50px;
-  font-size: 50px;
-}
-/* line 144, ../../app/styles/main.scss */
-.filter_hud .filter_detail {
-  padding-left: 8px;
-  font-size: 11px;
-  color: #c8c8c8;
-}
-
-/* line 151, ../../app/styles/main.scss */
+/* line 154, ../../app/styles/main.scss */
 .projects {
   position: absolute;
   top: 80px;
@@ -6300,12 +6281,12 @@ header {
   -moz-transition: .5s;
 }
 
-/* line 165, ../../app/styles/main.scss */
+/* line 168, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto 20px;
 }
 
-/* line 169, ../../app/styles/main.scss */
+/* line 172, ../../app/styles/main.scss */
 .project {
   width: 300px;
   height: 200px;
@@ -6313,7 +6294,7 @@ header {
   margin: 5px;
 }
 
-/* line 176, ../../app/styles/main.scss */
+/* line 179, ../../app/styles/main.scss */
 .detail {
   position: absolute;
   top: 80px;
@@ -6323,7 +6304,7 @@ header {
   opacity: 0;
   -webkit-transition: .5s .2s;
 }
-/* line 185, ../../app/styles/main.scss */
+/* line 188, ../../app/styles/main.scss */
 .detail div {
   width: 100%;
   height: 500px;
@@ -6332,19 +6313,19 @@ header {
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 194, ../../app/styles/main.scss */
+/* line 197, ../../app/styles/main.scss */
 .detail_visible {
   -webkit-transform: scale(0.9);
   opacity: 1;
 }
 
-/* line 206, ../../app/styles/main.scss */
+/* line 209, ../../app/styles/main.scss */
 .visible {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 211, ../../app/styles/main.scss */
+/* line 214, ../../app/styles/main.scss */
 .disabled {
   opacity: .3;
   -webkit-transform: scale(0.8);
@@ -6353,29 +6334,29 @@ header {
   -moz-transition: .5s;
 }
 
-/* line 222, ../../app/styles/main.scss */
+/* line 225, ../../app/styles/main.scss */
 .selected {
   background: orange;
 }
 
 @-webkit-keyframes myfirst {
-  /* line 229, ../../app/styles/main.scss */
+  /* line 232, ../../app/styles/main.scss */
   0% {
     background: #eeeeee;
   }
 
-  /* line 230, ../../app/styles/main.scss */
+  /* line 233, ../../app/styles/main.scss */
   50% {
     background: rgba(238, 238, 238, 0.6);
   }
 }
 
-/* line 232, ../../app/styles/main.scss */
+/* line 235, ../../app/styles/main.scss */
 .filtered {
   -webkit-animation: myfirst .5s infinite;
 }
 
-/* line 245, ../../app/styles/main.scss */
+/* line 248, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6386,7 +6367,7 @@ header {
   transition-duration: 0.2s;
 }
 
-/* line 254, ../../app/styles/main.scss */
+/* line 257, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6395,7 +6376,7 @@ header {
   transition-property: height, width;
 }
 
-/* line 262, ../../app/styles/main.scss */
+/* line 265, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6405,7 +6386,7 @@ header {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 274, ../../app/styles/main.scss */
+/* line 277, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {

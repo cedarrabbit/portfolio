@@ -9,114 +9,117 @@ body,
 	cursor: default;
 }
 
-
-header {
-	position: relative;
-	z-index: 1;
-	display: -webkit-box;
-	display: -moz-box;
-	-webkit-box-pack: end;
-	-moz-box-pack: end;
-	width: 75%;
-	height: 50px;
-}
-
-.hud {
-	display: -webkit-box;
-	height: 40px;
+.owner {
 	position: absolute;
-	top: 14px;
-	left: 30px;
-	line-height: 10px;
+	top: 35px;
+	right: 195px;
 
-	.owner {
-		border-right: 1px solid rgb(153,153,153);
-		padding: 10px 10px 0 0;
-	
-		.name {
-			font-size: 17px;
-			color: rgb(153,153,153);
-			text-align: right;
-		}
+	.name {
+		line-height: 17px;
+		font-size: 17px;
+		color: rgb(153,153,153);
+		text-align: right;
+	}
 
-		.title {
-			font-size: 13px;
-			color: rgba(153,153,153,.5);
-		}
-	};
+	.title {
+		line-height: 0px;
+		font-size: 13px;
+		color: rgba(153,153,153,.5);
+	}
+};
 
-	.filter_button {
+.filter_button {
+	position: absolute;
+	top: 15px;
+	left: 75px;
+	cursor: pointer;
+
+	.filter_numbers {
 		display: -webkit-box;
-		margin-top: 6px;
+		-webkit-box-align: end;
+		border-bottom: 1px solid rgb(230,230,230);
 
 		.filter_count {
-			padding: 0 5px 0 10px;
-			font-size: 50px;
+			// padding: 0 5px 0 10px;
+			font-size: 38px;
 			line-height: 34px;
 			color: rgb(153,153,153);
-			pointer-events: none;
 		}
 
 		.filter_total {
-			font-size: 24px;
-			padding: 4px 0 10px 0;
-			color: rgb(211,210,204);
-			pointer-events: none;
-		}
-
-		.projects_text {
-			font-size: 13px;
-			line-height: 13px;
-			color: rgb(210,210,213);
-			pointer-events: none;
+			font-size: 16px;
+			padding: 0 0 1px 8px;
+			color: rgb(210,210,204);
 		}
 	}
 
+	.filter_text {
+		display: -webkit-box;
+		-webkit-box-align: center;
+
+		.filter_blink {
+			width: 11px;
+			height: 11px;
+			background: rgb(238,238,238);
+		}
+
+		.projects_text {
+			padding-left: 6px;
+			font-size: 14px;
+			color: rgb(210,210,213);
+		}
+	}
 }
 
-.filters {
+.filter_hud {
 	display: -webkit-box;
 	-webkit-box-pack: center;
 	position: relative;
 	z-index: 1;
-	margin-top: 30px;
+	margin: 100px 40px 0 50px;
 	opacity: 0;
 	pointer-events: none;
 	-webkit-transition: .5s;
 
-	.dropdown {
-		width: 115px;
-		list-style: none;
-		font-size: 13px;
-		color: rgb(153,153,153);
+	.filters {
+		display: -webkit-box;
+		-webkit-box-flex: 1;
+	
+		.dropdown {
+			width: 115px;
+			list-style: none;
+			font-size: 13px;
+			color: rgb(153,153,153);
 
-		li {
-			height: 36px;
-			margin-bottom: 2px;
-			position: relative;
-			border-top: 1px solid rgba(238,238,238,1);
-			line-height: 40px;
-			padding-left: 10px;
-			cursor: pointer;
+			li {
+				height: 36px;
+				margin-bottom: 2px;
+				position: relative;
+				border-top: 1px solid rgba(238,238,238,1);
+				line-height: 40px;
+				padding-left: 10px;
+				cursor: pointer;
 
-			div {
-				position: absolute;
-				top: -14px;
-				right: 0;
-				font-size: 10px;
-				color: rgb(200,200,200);
+				div {
+					position: absolute;
+					top: -14px;
+					right: 0;
+					font-size: 10px;
+					color: rgb(200,200,200);
+				}
 			}
-		}
 
-		li:hover {
-			color: black;
-		};
+			li:hover {
+				color: black;
+			};
+		}
 	}
 
 	.project_list {
-		-webkit-box-flex: 1;
+		// -webkit-box-flex: 1;
 		-webkit-column-count: 2;
 		-webkit-column-gap: 10px;
+		width: 265px;
 		padding: 10px 0 0 10px;
 		margin: 0 20px 0 60px;
 		border-top: 1px solid rgba(238,238,238,1);
@@ -127,26 +130,26 @@ header {
 	}
 }
 
-.filter_hud {
-	display: -webkit-box;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-	z-index: 1;
-	padding: 8px;
-	color: rgb(153,153,153);
+// .filter_hud {
+// 	display: -webkit-box;
+// 	position: absolute;
+// 	left: 10px;
+// 	top: 10px;
+// 	z-index: 1;
+// 	padding: 8px;
+// 	color: rgb(153,153,153);
 
-	.filter_count {
-		line-height: 50px;
-		font-size: 50px;
-	}
+// 	.filter_count {
+// 		line-height: 50px;
+// 		font-size: 50px;
+// 	}
 
-	.filter_detail {
-		padding-left: 8px;
-		font-size: 11px;
-		color: rgb(200,200,200);
-	}
-}
+// 	.filter_detail {
+// 		padding-left: 8px;
+// 		font-size: 11px;
+// 		color: rgb(200,200,200);
+// 	}
+// }
 
 .projects {
 	position: absolute;

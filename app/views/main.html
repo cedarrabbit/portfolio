@@ -1,40 +1,34 @@
-<header>
-</header>
+<div class="owner">
+	<p class="name">JOSHUA DANIEL</p>
+	<p class="title">UI/UX Design & Development</p>
+</div>
 
-	<div class="hud">
-		<div class="owner">
-			<p class="name">JOSHUA DANIEL</p>
-			<p class="title">UI/UX Design & Development</p>
-		</div>
-		<div class="filter_button" ng-click="filtering=!filtering">
-			<div class="filter_count">{{filtered_total}}</div>
-			<div>
-				<div class="filter_total">/ {{projects.length}}</div>
-				<div class="projects_text">PROJECTS</div>
-			</div>
-		</div>
+<div class="filter_button" ng-click="filtering=!filtering">
+	<div class="filter_numbers">
+		<div class="filter_count">{{filtered_total}}</div>
+		<div class="filter_total">/ {{projects.length}}</div>
 	</div>
-
-<!-- <div class="filter_hud" ng-click="filtering=!filtering">
-	<div class="filter_count">{{filtered_total}}</div>
-	<div>
-		<div class="filter_total">/ {{projects.length}} PROJECTS</div>
+	<div class="filter_text">
+		<div class="filter_blink"></div>
+		<div class="projects_text">FILTERED</div>
 	</div>
-</div> -->
+</div>
 
-<div class="filters" ng-class="{visible:filtering}">
-	<ul class="dropdown">
-		<li menu='year' ng-repeat="year in filter_year" ng-click="filter($event,year)">{{year}}<div>{{test}}</div></li>
-	</ul>
-	<ul class="dropdown">
-		<li ng-repeat="format in filter_format" ng-click="filter($event,format)">{{format}}</li>
-	</ul>
-	<ul class="dropdown">
-		<li ng-repeat="platform in filter_platform" ng-click="filter($event,platform)">{{platform}}</li>
-	</ul>
-	<ul class="dropdown">
-		<li ng-repeat="client in filter_client" ng-click="filter($event,client)">{{client}}</li>
-	</ul>
+<div class="filter_hud" ng-class="{visible:filtering}">
+	<div class="filters">
+		<ul class="dropdown">
+			<li menu='year' ng-repeat="year in filter_year" ng-click="filter($event,year)">{{year}}<div>{{test}}</div></li>
+		</ul>
+		<ul class="dropdown">
+			<li ng-repeat="format in filter_format" ng-click="filter($event,format)">{{format}}</li>
+		</ul>
+		<ul class="dropdown">
+			<li ng-repeat="platform in filter_platform" ng-click="filter($event,platform)">{{platform}}</li>
+		</ul>
+		<ul class="dropdown">
+			<li ng-repeat="client in filter_client" ng-click="filter($event,client)">{{client}}</li>
+		</ul>
+	</div>
 	<div class="project_list">
 		<p ng-repeat="project in projects">{{project.name}}</p>
 	</div>	
