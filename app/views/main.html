@@ -17,7 +17,7 @@
 <div class="filter_hud" ng-class="{visible:filtering}">
 	<div class="filters">
 		<ul class="dropdown">
-			<li menu='year' ng-repeat="year in filter_year" ng-click="filter($event,year)">{{year}}<div>{{test}}</div></li>
+			<li ng-repeat="date in filter_date" filter='date' ng-click="filter($event,date)">{{date}}<div>{{count}}</div></li>
 		</ul>
 		<ul class="dropdown">
 			<li ng-repeat="format in filter_format" ng-click="filter($event,format)">{{format}}</li>
@@ -36,7 +36,7 @@
 
 <section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
 	<div id="isotope_container">
-		<div class="project" project ng-repeat="project in projects" ng-class="{opened:selectedProjectX==project}" ng-click="selectProject(project)">{{project.year}}</div>
+		<div class="project" project ng-repeat="project in projects" ng-class="{opened:selectedProjectX==project}" ng-click="selectProject(project)"></div>
 	</div>
 </section>
 
