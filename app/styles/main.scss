@@ -57,10 +57,19 @@ header {
 		li {
 			height: 36px;
 			margin-bottom: 2px;
+			position: relative;
 			border-top: 1px solid rgba(238,238,238,1);
 			line-height: 40px;
 			padding-left: 10px;
 			cursor: pointer;
+
+			div {
+				position: absolute;
+				top: -14px;
+				right: 0;
+				font-size: 10px;
+				color: rgb(200,200,200);
+			}
 		}
 
 		li:hover {
@@ -68,84 +77,38 @@ header {
 		};
 	}
 
-	.info {
-		width: 265px;
-		height: 500px;
-		margin-left: 60px;
-
-		.info_header {
-			display: -webkit-box;
-			-webkit-box-align: end;
-			width: 100%;
-			height: 118px;
-			border-bottom: 1px solid rgb(238,238,238);
-			color: rgb(153,153,153);
-			padding-bottom: 8px;
-
-			.count {
-				line-height: 80px;
-				font-size: 90px;
-				margin: 0 10px 0 10px;
-			}
-
-			.total {
-				-webkit-box-flex: 1;
-				height: 75px;
-				font-size: 15px;
-			}
-
-			.go_button {
-				display: -webkit-box;
-				-webkit-box-align: center;
-				-webkit-box-pack: center;
-				width: 110px;
-				height: 75px;
-				background: rgb(238,238,238);
-				font-size: 22px;
-				text-align: center;
-				cursor: pointer;
-			}
-
-			.go_button:hover {
-				color: red;
-			};
-		}
-
-		.project_list {
-			-webkit-box-flex: 1;
-			-webkit-column-count: 2;
-			-webkit-column-gap: 10px;
-			margin: 25px 0 0 10px;
-			font-size: 11px;
-			line-height: 11px;
-			color: rgba(153,153,153,.8);
-			text-transform: uppercase;
-		}
+	.project_list {
+		-webkit-box-flex: 1;
+		-webkit-column-count: 2;
+		-webkit-column-gap: 10px;
+		padding: 10px 0 0 10px;
+		margin: 0 20px 0 60px;
+		border-top: 1px solid rgba(238,238,238,1);
+		font-size: 11px;
+		line-height: 11px;
+		color: rgba(153,153,153,.8);
+		text-transform: uppercase;
 	}
 }
 
-.filter_button {
+.filter_hud {
 	display: -webkit-box;
-	-webkit-box-align: center;
-	-webkit-box-pack: center;
 	position: absolute;
-	left: 0;
+	left: 10px;
 	top: 10px;
 	z-index: 1;
-	width: 32px;
-	height: 32px;
-	background: orange;
+	padding: 8px;
+	color: rgb(153,153,153);
 
-	span {
-		display: block;
-		line-height: 28px;
-		font-size: 28px;
-		pointer-events: none;
-		-webkit-transition: .2s;
+	.filter_count {
+		line-height: 50px;
+		font-size: 50px;
 	}
 
-	.close {
-		-webkit-transform: rotate(45deg);
+	.filter_detail {
+		padding-left: 8px;
+		font-size: 11px;
+		color: rgb(200,200,200);
 	}
 }
 
