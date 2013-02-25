@@ -30,6 +30,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
 	$scope.filtering = false;
 	$scope.filters = [];
+	$scope.filtered_projects = [];
 	$scope.filter_date = [2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997];
 	$scope.filter_platform = ['iOS','Android','HTML5','Air','Flash','Flex','Director'];
 	$scope.filter_format = ['Mobile App','Web App','Desktop App','Website','CDROM'];
@@ -59,7 +60,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
 		isotope_container.isotope({filter:$scope.filters.join()})
 
-		// isotope-hidden
 		$scope.filtered_total = $('.project').not('.isotope-hidden').length;
 	}
 

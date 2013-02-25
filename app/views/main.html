@@ -1,44 +1,46 @@
-<div class="owner">
-	<p class="name">JOSHUA DANIEL</p>
-	<p class="title">UI/UX Design & Development</p>
-</div>
+<div class="no_detail" ng-class="{blur:selectedProject}">
+	<div class="owner">
+		<p class="name">JOSHUA DANIEL</p>
+		<p class="title">UI/UX Design & Development</p>
+	</div>
 
-<div class="filter_button" ng-click="filtering=!filtering">
-	<div class="filter_numbers">
-		<div class="filter_count">{{filtered_total}}</div>
-		<div class="filter_total">/ {{projects.length}}</div>
+	<div class="filter_button" ng-click="filtering=!filtering">
+		<div class="filter_numbers">
+			<div class="filter_count">{{filtered_total}}</div>
+			<div class="filter_total">/ {{projects.length}}</div>
+		</div>
+		<div class="filter_text">
+			<div class="filter_blink filtered"></div>
+			<div class="projects_text">FILTERED</div>
+		</div>
 	</div>
-	<div class="filter_text">
-		<div class="filter_blink"></div>
-		<div class="projects_text">FILTERED</div>
-	</div>
-</div>
 
-<div class="filter_hud" ng-class="{visible:filtering}">
-	<div class="filters">
-		<ul class="dropdown">
-			<li ng-repeat="date in filter_date" filter='date' ng-click="filter($event,date)">{{date}}<div>{{count}}</div></li>
-		</ul>
-		<ul class="dropdown">
-			<li ng-repeat="format in filter_format" ng-click="filter($event,format)">{{format}}</li>
-		</ul>
-		<ul class="dropdown">
-			<li ng-repeat="platform in filter_platform" ng-click="filter($event,platform)">{{platform}}</li>
-		</ul>
-		<ul class="dropdown">
-			<li ng-repeat="client in filter_client" ng-click="filter($event,client)">{{client}}</li>
-		</ul>
-	</div>
-	<div class="project_list">
-		<p ng-repeat="project in projects">{{project.name}}</p>
-	</div>	
-</div>
+	<div class="filter_hud" ng-class="{visible:filtering}">
+		<div class="filters">
+			<ul class="dropdown">
+				<li ng-repeat="date in filter_date" filter='date' ng-click="filter($event,date)">{{date}}<div>{{count}}</div></li>
+			</ul>
+			<ul class="dropdown">
+				<li ng-repeat="format in filter_format" filter='format' ng-click="filter($event,format)">{{format}}<div>{{count}}</div></li>
+			</ul>
+			<ul class="dropdown">
+				<li ng-repeat="platform in filter_platform" filter='platform' ng-click="filter($event,platform)">{{platform}}<div>{{count}}</div></li>
+			</ul>
+			<ul class="dropdown">
+				<li ng-repeat="client in filter_client" filter='client' ng-click="filter($event,client)">{{client}}<div>{{count}}</div></li>
+			</ul>
+		</div>
+	<!-- 	<div class="project_list">
+			<p ng-repeat="project in projects">{{project.name}}</p>
+		</div>	
+	 --></div>
 
-<section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
-	<div id="isotope_container">
-		<div class="project" project ng-repeat="project in projects" ng-class="{opened:selectedProjectX==project}" ng-click="selectProject(project)"></div>
-	</div>
-</section>
+	<section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
+		<div id="isotope_container">
+			<div class="project" project ng-repeat="project in projects" ng-click="selectProject(project)"></div>
+		</div>
+	</section>
+</div>
 
 <section class="detail" ng-class="{detail_visible:selectedProject}">
 	<div></div>

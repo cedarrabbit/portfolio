@@ -6221,7 +6221,6 @@ body,
 /* line 84, ../../app/styles/main.scss */
 .filter_hud .filters {
   display: -webkit-box;
-  -webkit-box-flex: 1;
 }
 /* line 88, ../../app/styles/main.scss */
 .filter_hud .filters .dropdown {
@@ -6252,7 +6251,16 @@ body,
 .filter_hud .filters .dropdown li:hover {
   color: black;
 }
-/* line 118, ../../app/styles/main.scss */
+/* line 116, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown .selected {
+  color: red;
+  background: rgba(230, 230, 230, 0.2);
+}
+/* line 121, ../../app/styles/main.scss */
+.filter_hud .filters .dropdown .selected:hover {
+  color: red;
+}
+/* line 127, ../../app/styles/main.scss */
 .filter_hud .project_list {
   -webkit-column-count: 2;
   -webkit-column-gap: 10px;
@@ -6266,7 +6274,7 @@ body,
   text-transform: uppercase;
 }
 
-/* line 154, ../../app/styles/main.scss */
+/* line 142, ../../app/styles/main.scss */
 .projects {
   position: absolute;
   top: 80px;
@@ -6281,20 +6289,25 @@ body,
   -moz-transition: .5s;
 }
 
-/* line 168, ../../app/styles/main.scss */
+/* line 156, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto 20px;
 }
 
-/* line 172, ../../app/styles/main.scss */
+/* line 160, ../../app/styles/main.scss */
 .project {
-  width: 300px;
-  height: 200px;
+  width: 252px;
+  height: 196px;
   background: rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  margin: 22px;
 }
 
-/* line 179, ../../app/styles/main.scss */
+/* line 168, ../../app/styles/main.scss */
+.no_detail {
+  -webkit-transition: 1s;
+}
+
+/* line 172, ../../app/styles/main.scss */
 .detail {
   position: absolute;
   top: 80px;
@@ -6304,28 +6317,27 @@ body,
   opacity: 0;
   -webkit-transition: .5s .2s;
 }
-/* line 188, ../../app/styles/main.scss */
+/* line 181, ../../app/styles/main.scss */
 .detail div {
-  width: 100%;
+  width: 700px;
   height: 500px;
   margin: 0 auto;
   background: #2d2d2d;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 197, ../../app/styles/main.scss */
+/* line 190, ../../app/styles/main.scss */
 .detail_visible {
-  -webkit-transform: scale(0.9);
   opacity: 1;
 }
 
-/* line 209, ../../app/styles/main.scss */
+/* line 202, ../../app/styles/main.scss */
 .visible {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 214, ../../app/styles/main.scss */
+/* line 207, ../../app/styles/main.scss */
 .disabled {
   opacity: .3;
   -webkit-transform: scale(0.8);
@@ -6334,29 +6346,36 @@ body,
   -moz-transition: .5s;
 }
 
-/* line 225, ../../app/styles/main.scss */
-.selected {
-  background: orange;
+/* line 215, ../../app/styles/main.scss */
+.blur {
+  opacity: .5;
+  -webkit-filter: blur(5px);
+  pointer-events: none;
 }
 
 @-webkit-keyframes myfirst {
-  /* line 232, ../../app/styles/main.scss */
+  /* line 224, ../../app/styles/main.scss */
   0% {
+    background: red;
+  }
+
+  /* line 225, ../../app/styles/main.scss */
+  2% {
     background: #eeeeee;
   }
 
-  /* line 233, ../../app/styles/main.scss */
-  50% {
-    background: rgba(238, 238, 238, 0.6);
+  /* line 226, ../../app/styles/main.scss */
+  4% {
+    background: red;
+  }
+
+  /* line 227, ../../app/styles/main.scss */
+  6% {
+    background: #eeeeee;
   }
 }
 
-/* line 235, ../../app/styles/main.scss */
-.filtered {
-  -webkit-animation: myfirst .5s infinite;
-}
-
-/* line 248, ../../app/styles/main.scss */
+/* line 242, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6367,7 +6386,7 @@ body,
   transition-duration: 0.2s;
 }
 
-/* line 257, ../../app/styles/main.scss */
+/* line 251, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6376,7 +6395,7 @@ body,
   transition-property: height, width;
 }
 
-/* line 265, ../../app/styles/main.scss */
+/* line 259, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6386,7 +6405,7 @@ body,
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 277, ../../app/styles/main.scss */
+/* line 271, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
