@@ -12,7 +12,7 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">        
     <link rel="stylesheet" href="styles/main.css"/>
-
+    <script src="scripts/vendor/prefixfree.min.js"></script>
 </head>
 <body ng-app="joshuaApp">
 
@@ -28,17 +28,20 @@
 <!-- Add your site or application content here -->
 <div class="container" ng-view></div>
 
+
 <script src="scripts/vendor/angular.js"></script>
 
 <!-- build:js scripts/scripts.js -->
 <script src="components/jquery/jquery.js"></script>
 <script src="components/underscore/underscore.js"></script>
+<script src="components/d3/d3.js"></script>
 <!-- 
 <script src="scripts/vendor/google.fastbutton.js"></script>
 <script src="scripts/vendor/jquery.google.fastbutton.js"></script>
  -->
 <script src="components/isotope/jquery.isotope.js"></script>
 <script src="components/isotope/jquery.isotope.center.js"></script>
+<script src="components/swipe/swipe.js"></script>
 
 
 <script src="scripts/app.js"></script>
@@ -46,6 +49,10 @@
 <script src="scripts/directives/menu.js"></script>
 <script src="scripts/directives/project.js"></script>
 <script src="scripts/directives/filter.js"></script>
+<script src="scripts/directives/isotope.js"></script>
+<script src="scripts/directives/projectList.js"></script>
+<script src="scripts/directives/filterVis.js"></script>
+<script src="scripts/directives/chart.js"></script>
 <!-- endbuild -->
 
 <!-- web fonts -->

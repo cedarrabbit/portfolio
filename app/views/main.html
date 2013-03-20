@@ -1,47 +1,86 @@
 <div class="no_detail" ng-class="{blur:selectedProject}">
 	<div class="owner">
 		<p class="name">JOSHUA DANIEL</p>
-		<p class="title">UI/UX Design & Development</p>
+		<p class="title">UI/UX DESIGN & DEVELOPMENT</p>
 	</div>
 
-	<div class="filter_button" ng-click="filtering=!filtering">
-		<div class="filter_numbers">
-			<div class="filter_count">{{filtered_total}}</div>
-			<div class="filter_total">/ {{projects.length}}</div>
+	<div class="filter_vis" filter-vis ng-tap="filtering=!filtering">
+		<div class="labels">
+			FILTERS
 		</div>
-		<div class="filter_text">
-			<div class="filter_blink filtered"></div>
-			<div class="projects_text">FILTERED</div>
-		</div>
+		<svg>
+			<defs>
+			    <filter id="f1" x="-40%" y="-40%" height="200%" width="200%">
+			      <feOffset result="offOut" in="SourceAlpha" dx="4" dy="4" />
+			      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="4" />
+			      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+			      <feComponentTransfer>
+			        <feFuncA type="linear" slope=".3"/>
+			      </feComponentTransfer>
+			    </filter>
+  			</defs>
+		</svg>
 	</div>
 
 	<div class="filter_hud" ng-class="{visible:filtering}">
+		<div class="project_list">
+			<p ng-repeat="project in projects" project-list>{{project.name}}</p>
+		</div>	
 		<div class="filters">
 			<ul class="dropdown">
-				<li ng-repeat="date in filter_date" filter='date' ng-click="filter($event,date)">{{date}}<div>{{count}}</div></li>
+				<li ng-repeat="date in filter_date" filter='date'>{{date}}<div>{{count}}</div></li>
 			</ul>
 			<ul class="dropdown">
-				<li ng-repeat="format in filter_format" filter='format' ng-click="filter($event,format)">{{format}}<div>{{count}}</div></li>
+				<li ng-repeat="format in filter_format" filter='format'>{{format}}<div>{{count}}</div></li>
 			</ul>
 			<ul class="dropdown">
-				<li ng-repeat="platform in filter_platform" filter='platform' ng-click="filter($event,platform)">{{platform}}<div>{{count}}</div></li>
+				<li ng-repeat="platform in filter_platform" filter='platform'>{{platform}}<div>{{count}}</div></li>
 			</ul>
 			<ul class="dropdown">
-				<li ng-repeat="client in filter_client" filter='client' ng-click="filter($event,client)">{{client}}<div>{{count}}</div></li>
+				<li ng-repeat="client in filter_client.slice(0,15)" filter='client'>{{client}}<div>{{count}}</div></li>
+			</ul>
+			<ul class="dropdown">
+				<li ng-repeat="client in filter_client.slice(16)" filter='client'>{{client}}<div>{{count}}</div></li>
 			</ul>
 		</div>
-	<!-- 	<div class="project_list">
-			<p ng-repeat="project in projects">{{project.name}}</p>
-		</div>	
-	 --></div>
-
-	<section class="projects" ng-class="{visible:contentReady, disabled:filtering}" ng-click="endFiltering()">
-		<div id="isotope_container">
-			<div class="project" project ng-repeat="project in projects" ng-click="selectProject(project)"></div>
+	</div>
+	
+	<section class="projects" ng-class="{visible:contentReady, disabled:filtering}">
+		<div id="isotope_container" isotope>
+			<div class="project" project ng-repeat="project in projects" ng-tap="selectProject(project)">
+				<img ng-src="{{project.thumb}}">
+				<p>{{project.client}}, {{project.name}}</p>
+				<p>{{project.description}}</p>
+				<p>{{project.date}} <span>{{project.format}}, {{project.platform}}</span></p>
+			</div>
 		</div>
 	</section>
+
 </div>
 
 <section class="detail" ng-class="{detail_visible:selectedProject}">
-	<div></div>
+	<div id='swipe'>
+	  <ul>
+	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in selectedProject.slides">
+	    	<div>
+	    		<img ng-src="{{slide.image}}">
+	    	</div>
+	    </li>
+	  </ul>
+	</div>
+	<p>{{selectedProject.client}}, {{selectedProject.name}}</p>
+	<p>{{selectedProject.description}}</p>
+	<p>{{selectedProject.date}} <span>{{selectedProject.format}}</span></p>
+	<div id="detail_close" ng-tap="closeDetail()" >
+		<img ng-src="styles/image/icon/close_icon.png">
+	</div>
+	<div id="swipe_prev" ng-tap="swipe(-1)" ng-show="!isMobile">
+		<img ng-src="styles/image/icon/arrow_left.png">
+	</div>
+	<div id="swipe_next" ng-tap="swipe(1)" ng-show="!isMobile">
+		<img ng-src="styles/image/icon/arrow_right.png">
+	</div>
+	<div id="swipe_index">
+		<div class="index_marker" ng-class="{selected:$index==detail_index,removed:$index==swiper.length}" ng-repeat="marker in swiper.slides" ng-tap="showSlide($index)"></div>
+	</div>
 </section>
