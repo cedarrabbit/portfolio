@@ -51,7 +51,7 @@
 
 <div id='swipe'>
 	  <ul>
-	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in selectedProject.slides">
+	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in [1,2,3]">
 	    	<div>
 	    		<img ng-src="{{slide.image}}">
 	    	</div>

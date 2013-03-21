@@ -6295,33 +6295,31 @@ body,
   background: #ccc;
 }
 
-/* line 178, ../../app/styles/main.scss */
-.swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
+/* line 173, ../../app/styles/main.scss */
+#swipe li div {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  width: 850px;
+  height: 530px;
+  margin: 0 auto;
+  margin-top: 60px;
+  border: 1px solid #dddddd;
+  background: red;
 }
 
-/* line 184, ../../app/styles/main.scss */
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
+/* line 185, ../../app/styles/main.scss */
+.swipe_hidden {
+  display: none;
 }
 
-/* line 189, ../../app/styles/main.scss */
-.swipe-wrap > div {
-  float: left;
-  width: 100%;
-  position: relative;
-}
-
-/* line 197, ../../app/styles/main.scss */
+/* line 214, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto;
   padding-right: 60px;
 }
 
-/* line 203, ../../app/styles/main.scss */
+/* line 220, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6332,7 +6330,7 @@ body,
   transition-duration: 0.2s;
 }
 
-/* line 212, ../../app/styles/main.scss */
+/* line 229, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6341,7 +6339,7 @@ body,
   transition-property: height, width;
 }
 
-/* line 220, ../../app/styles/main.scss */
+/* line 237, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6351,7 +6349,7 @@ body,
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 232, ../../app/styles/main.scss */
+/* line 249, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
