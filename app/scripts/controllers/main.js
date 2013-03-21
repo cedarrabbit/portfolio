@@ -1,7 +1,17 @@
 'use strict';
 
 joshuaApp.controller('MainCtrl', function($scope, $timeout) {
-
+	$scope.persona = {
+		name:'JOSHUA DANIEL',
+		title:'UI/UX DESIGNER & DEVELOPER',
+		profile:'This is my profile...',
+		about:"This is what I'm about...",
+		ed_1:"2003 BA Indiana University Informatics-HCI",
+		ed_2:"1997 BA Indiana University Anthropology",
+		email:'joshua.daniel@me.com',
+		resume:'http://www.google.com'
+	};
+	
 	$scope.projects = [
 		{date:'2012',platform:'HTML5',format:'Web App',client:'Huawei',name:'Red Carpet Agent',description:'Next generation Cloud-based Customer Service Solution',thumb:'styles/image/grid/rc_agent_grid.jpg',
 			slides:[
@@ -235,54 +245,70 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		}
 	];
 
-	var isotope_container = $('#isotope_container');
+	$scope.clients = _.uniq(_.pluck($scope.projects,'client'));
+	$scope.technologies = _.uniq(_.pluck($scope.projects,'platform'));
+	$scope.formats = _.uniq(_.pluck($scope.projects,'format'));
+	$scope.industries = _.uniq(_.pluck($scope.projects,'industry'));
 
-	$scope.isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
-	$scope.filtering = false;
-	$scope.filters = [];
-	$scope.filtered_projects = [];
-	$scope.filter_date = _.uniq(_.pluck($scope.projects,'date'));
-	$scope.filter_platform = _.uniq(_.pluck($scope.projects,'platform'));
-	$scope.filter_format = _.uniq(_.pluck($scope.projects,'format'));
-	$scope.filter_client = _.uniq(_.pluck($scope.projects,'client'));
-	$scope.filtered_total = $scope.projects.length;
-	$scope.detail_index = 0;
+	$scope.selectedProjects = [];
 
-	$timeout(function(){
-		isotope_container.isotope({
-			itemSelector: '.project',
-			animationEngine: 'css'
-		})
 
-		$scope.contentReady = true;
-	},1000);
 
-	$scope.selectProject = function(project) {
-		if(!$scope.filtering)
-		{
-			$scope.selectedProject = project;
-			$timeout(function(){
-				$scope.swiper = new Swipe(document.getElementById('swipe'),{
-					callback: function(event,index,elem) {
-						$scope.detail_index = index;
-						$scope.$apply();
-					}
-				});
-			},0)
-		}
-	}
 
-	$scope.swipe = function(dir) {
-		dir > 0 ? $scope.swiper.next() : $scope.swiper.prev();
-	}
 
-	$scope.showSlide = function(index) {
-		$scope.swiper.slide(index);
-	}
 
-	$scope.closeDetail = function() {
-		$scope.selectedProject=false;
-		$scope.detail_index = 0;
-	}
+
+
+
+
+	// var isotope_container = $('#isotope_container');
+
+	// $scope.isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
+	// $scope.filtering = false;
+	// $scope.filters = [];
+	// $scope.filtered_projects = [];
+	// $scope.filter_date = _.uniq(_.pluck($scope.projects,'date'));
+	// $scope.filter_platform = _.uniq(_.pluck($scope.projects,'platform'));
+	// $scope.filter_format = _.uniq(_.pluck($scope.projects,'format'));
+	// $scope.filter_client = _.uniq(_.pluck($scope.projects,'client'));
+	// $scope.filtered_total = $scope.projects.length;
+	// $scope.detail_index = 0;
+
+	// $timeout(function(){
+	// 	isotope_container.isotope({
+	// 		itemSelector: '.project',
+	// 		animationEngine: 'css'
+	// 	})
+
+	// 	$scope.contentReady = true;
+	// },1000);
+
+	// $scope.selectProject = function(project) {
+	// 	if(!$scope.filtering)
+	// 	{
+	// 		$scope.selectedProject = project;
+	// 		$timeout(function(){
+	// 			$scope.swiper = new Swipe(document.getElementById('swipe'),{
+	// 				callback: function(event,index,elem) {
+	// 					$scope.detail_index = index;
+	// 					$scope.$apply();
+	// 				}
+	// 			});
+	// 		},0)
+	// 	}
+	// }
+
+	// $scope.swipe = function(dir) {
+	// 	dir > 0 ? $scope.swiper.next() : $scope.swiper.prev();
+	// }
+
+	// $scope.showSlide = function(index) {
+	// 	$scope.swiper.slide(index);
+	// }
+
+	// $scope.closeDetail = function() {
+	// 	$scope.selectedProject=false;
+	// 	$scope.detail_index = 0;
+	// }
 
 });

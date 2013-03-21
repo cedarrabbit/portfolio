@@ -1,86 +1,51 @@
-<div class="no_detail" ng-class="{blur:selectedProject}">
-	<div class="owner">
-		<p class="name">JOSHUA DANIEL</p>
-		<p class="title">UI/UX DESIGN & DEVELOPMENT</p>
-	</div>
-
-	<div class="filter_vis" filter-vis ng-tap="filtering=!filtering">
-		<div class="labels">
-			FILTERS
-		</div>
-		<svg>
-			<defs>
-			    <filter id="f1" x="-40%" y="-40%" height="200%" width="200%">
-			      <feOffset result="offOut" in="SourceAlpha" dx="4" dy="4" />
-			      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="4" />
-			      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-			      <feComponentTransfer>
-			        <feFuncA type="linear" slope=".3"/>
-			      </feComponentTransfer>
-			    </filter>
-  			</defs>
-		</svg>
-	</div>
-
-	<div class="filter_hud" ng-class="{visible:filtering}">
-		<div class="project_list">
-			<p ng-repeat="project in projects" project-list>{{project.name}}</p>
-		</div>	
-		<div class="filters">
-			<ul class="dropdown">
-				<li ng-repeat="date in filter_date" filter='date'>{{date}}<div>{{count}}</div></li>
-			</ul>
-			<ul class="dropdown">
-				<li ng-repeat="format in filter_format" filter='format'>{{format}}<div>{{count}}</div></li>
-			</ul>
-			<ul class="dropdown">
-				<li ng-repeat="platform in filter_platform" filter='platform'>{{platform}}<div>{{count}}</div></li>
-			</ul>
-			<ul class="dropdown">
-				<li ng-repeat="client in filter_client.slice(0,15)" filter='client'>{{client}}<div>{{count}}</div></li>
-			</ul>
-			<ul class="dropdown">
-				<li ng-repeat="client in filter_client.slice(16)" filter='client'>{{client}}<div>{{count}}</div></li>
-			</ul>
-		</div>
-	</div>
-	
-	<section class="projects" ng-class="{visible:contentReady, disabled:filtering}">
-		<div id="isotope_container" isotope>
-			<div class="project" project ng-repeat="project in projects" ng-tap="selectProject(project)">
-				<img ng-src="{{project.thumb}}">
-				<p>{{project.client}}, {{project.name}}</p>
-				<p>{{project.description}}</p>
-				<p>{{project.date}} <span>{{project.format}}, {{project.platform}}</span></p>
-			</div>
-		</div>
+<div class="header" ng-class="{header_open:header_opened}">
+	<div class="name">{{persona.name}} <span>{{persona.title}}</span></div>
+	<div class="bio_button" ng-tap="header_opened = !header_opened"></div>
+	<section>
+		<div class="title">PROFILE</div>
+		<p>{{persona.profile}}</p>
 	</section>
-
+	<section>
+		<div class="title">ABOUT</div>
+		<p>{{persona.about}}</p>
+	</section>
+	<section>
+		<div class="title">EDUCATION</div>
+		<p>{{persona.ed_1}}<br>{{persona.ed_2}}</p>
+	</section>
+	<section>
+		<div class="title">CONTACT</div>
+		<p><a ng-href="mailto:{{persona.email}}">{{persona.email}}</a><br><a ng-href="{{persona.resume}}" target="_blank">resume</a></p>
+	</section>
 </div>
 
-<section class="detail" ng-class="{detail_visible:selectedProject}">
-	<div id='swipe'>
-	  <ul>
-	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in selectedProject.slides">
-	    	<div>
-	    		<img ng-src="{{slide.image}}">
-	    	</div>
-	    </li>
-	  </ul>
+<div class="menu">
+	<div class="item">
+		<p>{{projects.length}}</p>
+		<p>PROJECTS</p>
 	</div>
-	<p>{{selectedProject.client}}, {{selectedProject.name}}</p>
-	<p>{{selectedProject.description}}</p>
-	<p>{{selectedProject.date}} <span>{{selectedProject.format}}</span></p>
-	<div id="detail_close" ng-tap="closeDetail()" >
-		<img ng-src="styles/image/icon/close_icon.png">
+	<div class="item">
+		<p>{{clients.length}}</p>
+		<p>CLIENTS</p>
 	</div>
-	<div id="swipe_prev" ng-tap="swipe(-1)" ng-show="!isMobile">
-		<img ng-src="styles/image/icon/arrow_left.png">
+	<div class="item">
+		<p>{{technologies.length}}</p>
+		<p>TECHNOLOGIES</p>
 	</div>
-	<div id="swipe_next" ng-tap="swipe(1)" ng-show="!isMobile">
-		<img ng-src="styles/image/icon/arrow_right.png">
+	<div class="item">
+		<p>{{formats.length}}</p>
+		<p>FORMATS</p>
 	</div>
-	<div id="swipe_index">
-		<div class="index_marker" ng-class="{selected:$index==detail_index,removed:$index==swiper.length}" ng-repeat="marker in swiper.slides" ng-tap="showSlide($index)"></div>
+	<div class="item">
+		<p>{{industries.length}}</p>
+		<p>INDUSTRIES</p>
 	</div>
-</section>
+	<div class="timeline" timeline>
+		<div class="year" ng-repeat="item in timeline">
+			<div class="dot" ng-class="{selected:selectedProjects.indexOf(project.client)!=-1}" ng-repeat="project in item"></div>
+			<p>{{timeline_labels[$index]}}</p>
+		</div>
+	</div>
+</div>
+
+<div class="bottom"></div>
