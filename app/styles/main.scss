@@ -154,12 +154,43 @@ body,
 	}
 }
 
+.view_projects {
+	margin-top: 60px;
+
+	.projects {
+		overflow: scroll;
+		-webkit-overflow-scrolling: touch;
+		
+		.project {
+			// width: 920px;
+			height: 530px;
+			margin-right: 20px;
+			background: #ccc;
+		}
+	}
+}
 
 
 
 
 
+// SWIPE
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
 
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
 
 
 // ISOTOPE

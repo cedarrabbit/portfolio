@@ -253,7 +253,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.selectedProjects = [];
 
 
-
+	$scope.swiper = new Swipe(document.getElementById('swipe'));
 
 
 
