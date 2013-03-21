@@ -48,10 +48,21 @@
 	</div>
 </div>
 
-<div id="swipe" class="view_projects swipe">
+
+<div id='swipe'>
+	  <ul>
+	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in selectedProject.slides">
+	    	<div>
+	    		<img ng-src="{{slide.image}}">
+	    	</div>
+	    </li>
+	  </ul>
+</div>
+
+<!-- <div id="swipe" class="view_projects swipe">
 	<div class="projects swipe-wrap">
 		<div class="project"></div>
 		<div class="project"></div>
 		<div class="project"></div>
 	</div>
-</div>
+</div> -->
