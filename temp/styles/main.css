@@ -6272,7 +6272,7 @@ body,
   height: 8px;
   background: #dddddd;
   margin-top: 2px;
-  -webkit-transition: 1s;
+  -webkit-transition: .3s;
 }
 /* line 150, ../../app/styles/main.scss */
 .menu .timeline .year .selected {
@@ -6282,35 +6282,51 @@ body,
 /* line 157, ../../app/styles/main.scss */
 .view_projects {
   margin-top: 60px;
+  position: relative;
 }
-/* line 160, ../../app/styles/main.scss */
-.view_projects .projects {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+/* line 161, ../../app/styles/main.scss */
+.view_projects .swipe_projects_hidden {
+  display: none;
 }
-/* line 164, ../../app/styles/main.scss */
-.view_projects .projects .project {
-  height: 530px;
-  margin-right: 20px;
-  background: #ccc;
+/* line 165, ../../app/styles/main.scss */
+.view_projects #swipe_projects_prev {
+  position: absolute;
+  top: 250px;
+  left: 10px;
 }
-
-/* line 173, ../../app/styles/main.scss */
-#swipe li div {
+/* line 171, ../../app/styles/main.scss */
+.view_projects #swipe_projects_next {
+  position: absolute;
+  top: 250px;
+  right: 10px;
+}
+/* line 177, ../../app/styles/main.scss */
+.view_projects .swipe_project_arrow_hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+/* line 182, ../../app/styles/main.scss */
+.view_projects #swipe_projects li div {
   display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
   width: 850px;
   height: 530px;
   margin: 0 auto;
-  margin-top: 60px;
-  border: 1px solid #dddddd;
-  background: red;
+  background: rgba(0, 0, 0, 0.1);
 }
-
-/* line 185, ../../app/styles/main.scss */
-.swipe_hidden {
-  display: none;
+/* line 189, ../../app/styles/main.scss */
+.view_projects #swipe_projects li div .info {
+  width: 230px;
+}
+/* line 192, ../../app/styles/main.scss */
+.view_projects #swipe_projects li div .info .title {
+  font-size: 18px;
+  color: #444444;
+}
+/* line 198, ../../app/styles/main.scss */
+.view_projects #swipe_projects li div .slides {
+  width: 100px;
+  height: 50px;
+  background: red;
 }
 
 /* line 214, ../../app/styles/main.scss */

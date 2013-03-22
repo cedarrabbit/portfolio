@@ -144,7 +144,7 @@ body,
 				height: 8px;
 				background: $line;
 				margin-top: 2px;
-				-webkit-transition: 1s;
+				-webkit-transition: .3s;
 			}
 
 			.selected {
@@ -156,58 +156,58 @@ body,
 
 .view_projects {
 	margin-top: 60px;
+	position: relative;
 
-	.projects {
-		overflow: scroll;
-		-webkit-overflow-scrolling: touch;
-		
-		.project {
-			// width: 920px;
-			height: 530px;
-			margin-right: 20px;
-			background: #ccc;
+	.swipe_projects_hidden {
+		display: none;
+	}
+
+	#swipe_projects_prev {
+		position: absolute;
+		top: 250px;
+		left: 10px;
+	}
+
+	#swipe_projects_next {
+		position: absolute;
+		top: 250px;
+		right: 10px;
+	}
+
+	.swipe_project_arrow_hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#swipe_projects li div {
+		display: -webkit-box;
+		width: 850px;
+		height: 530px;
+		margin: 0 auto;
+		background: rgba(0,0,0,.1);
+
+		.info {
+			width: 230px;
+
+			.title {
+				font-size: 18px;
+				color: $header_bg;
+			}
+		}
+
+		.slides {
+			width: 100px;
+			height: 50px;
+			background: red;
 		}
 	}
 }
 
-#swipe li div {
-		display: -webkit-box;
-		-webkit-box-align: center;
-		-webkit-box-pack: center;
-		width: 850px;
-		height: 530px;
-		margin: 0 auto;
-		margin-top: 60px;
-		border: 1px solid $line;
-		background: red;
-	}
-
-	.swipe_hidden {
-		display: none;
-	}
 
 
 
 
 
-
-// SWIPE
-// .swipe {
-//   overflow: hidden;
-//   visibility: hidden;
-//   position: relative;
-// }
-
-// .swipe-wrap {
-//   overflow: hidden;
-//   position: relative;
-// }
-
-// .swipe-wrap > div {
-//   float:left;
-//   width:100%;
-//   position: relative;
-// }
 
 
 // ISOTOPE

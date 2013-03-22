@@ -42,27 +42,31 @@
 	</div>
 	<div class="timeline" timeline>
 		<div class="year" ng-repeat="item in timeline">
-			<div class="dot" ng-class="{selected:selectedProjects.indexOf(project.client)!=-1}" ng-repeat="project in item"></div>
+			<div class="dot" ng-class="{selected:selectedProjects.indexOf(project.id)!=-1}" ng-repeat="project in item"></div>
 			<p>{{timeline_labels[$index]}}</p>
 		</div>
 	</div>
 </div>
 
-
-<div id='swipe'>
-	  <ul>
-	    <li ng-class="{swipe_hidden:$index!=swiper.index}" ng-repeat="slide in [1,2,3]">
-	    	<div>
-	    		<img ng-src="{{slide.image}}">
-	    	</div>
-	    </li>
-	  </ul>
-</div>
-
-<!-- <div id="swipe" class="view_projects swipe">
-	<div class="projects swipe-wrap">
-		<div class="project"></div>
-		<div class="project"></div>
-		<div class="project"></div>
+<div class="view_projects">
+	<div id='swipe_projects'>
+		  <ul>
+		    <li ng-repeat="project in projects">
+		    	<div>
+		    		<div class="info">
+			    		<p class="title">{{project.name}}</p>
+		    		</div>
+		    		<div class="slides">
+		    		</div>
+		    	</div>
+		    </li>
+		  </ul>
 	</div>
-</div> -->
+
+	<div id="swipe_projects_prev" ng-class="{swipe_project_arrow_hidden:projectIndex == 0}" ng-tap="swipe(-1)">
+		<img ng-src="styles/image/icon/arrow_left.png">
+	</div>
+	<div id="swipe_projects_next" ng-class="{swipe_project_arrow_hidden:projectIndex == projects.length-1}" ng-tap="swipe(1)">
+		<img ng-src="styles/image/icon/arrow_right.png">
+	</div>
+</div>
