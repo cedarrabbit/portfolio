@@ -20,23 +20,24 @@
 </div>
 
 <div class="menu">
-	<div class="item">
+	<div class="marker animated" ng-class="{marker_selected_0:viewIndex==0,marker_selected_1:viewIndex==1,marker_selected_2:viewIndex==2,marker_selected_3:viewIndex==3,marker_selected_4:viewIndex==4}"></div>
+	<div class="item" ng-class="{marker_selected:viewIndex==0}" ng-tap="viewIndex=0">
 		<p>{{projects.length}}</p>
 		<p>PROJECTS</p>
 	</div>
-	<div class="item">
+	<div class="item" ng-class="{marker_selected:viewIndex==1}" ng-tap="viewIndex=1">
 		<p>{{clients.length}}</p>
 		<p>CLIENTS</p>
 	</div>
-	<div class="item">
+	<div class="item" ng-class="{marker_selected:viewIndex==2}" ng-tap="viewIndex=2">
 		<p>{{technologies.length}}</p>
 		<p>TECHNOLOGIES</p>
 	</div>
-	<div class="item">
+	<div class="item" ng-class="{marker_selected:viewIndex==3}" ng-tap="viewIndex=3">
 		<p>{{formats.length}}</p>
 		<p>FORMATS</p>
 	</div>
-	<div class="item">
+	<div class="item" ng-class="{marker_selected:viewIndex==4}" ng-tap="viewIndex=4">
 		<p>{{industries.length}}</p>
 		<p>INDUSTRIES</p>
 	</div>
@@ -48,17 +49,60 @@
 	</div>
 </div>
 
-<div class="view_projects">
+<div class="view_projects view animated" ng-class="{visible:viewIndex==0}">
 	<div id='swipe_projects'>
 		  <ul>
 		    <li ng-repeat="project in projects">
 		    	<div>
-<!-- 		    		<div class="info">
-			    		<p class="title">{{project.name}}</p>
+		    		<div class="info">
+			    		<p class="title">{{project.name.toUpperCase()}}</p>
+			    		<div class="details">
+				    		<table>
+				    			<tbody>
+				    				<tr>
+				    					<th align="right">CLIENT</th>
+				    					<td>{{project.client}}</td>	
+				    				</tr>
+				    				<tr>
+				    					<th align="right">FORMAT</th>
+				    					<td>{{project.format}}</td>	
+				    				</tr>
+				    				<tr>
+				    					<th align="right">TECHNOLOGIES</th>
+				    					<td>{{project.platform}}</td>	
+				    				</tr>
+				    			</tbody>
+				    		</table>
+				    	</div>
+				    	<div class="descriptions">
+					    	<section>
+					    		<p>OVERVIEW</p>
+					    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.</p>
+					    	</section>
+					    	<section>
+					    		<p>PROCESS</p>
+					    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.</p>
+					    	</section>
+					    	<section>
+					    		<p>RESULT</p>
+					    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo felis, semper sit amet blandit eget, faucibus sollicitudin massa. Aliquam erat volutpat. Sed ac quam sem, vel dignissim velit. In convallis risus libero. Praesent non leo non urna lobortis cursus non quis magna.</p>
+					    	</section>
+				    	</div>
 		    		</div>
 		    		<div class="slides">
+		    			<ul class="slide_map">
+		    				<li ng-repeat="slide in project.slides">
+		    					<p>ITERATION 01</p>
+		    					<div class="marker"></div>
+		    				</li>
+		    			</ul>
+		    			<ul class="slide_images">
+		    				<li ng-repeat="slide in project.slides">
+		    					<img ng-src="{{slide.image}}">
+		    				</li>
+		    			</ul>
 		    		</div>
- -->		    	</div>
+		    	</div>
 		    </li>
 		  </ul>
 	</div>
@@ -69,4 +113,5 @@
 	<div id="swipe_projects_next" ng-class="{swipe_project_arrow_hidden:projectIndex == projects.length-1}" ng-tap="swipe(1)">
 		<img ng-src="styles/image/icon/arrow_right.png">
 	</div>
+
 </div>

@@ -250,6 +250,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.technologies = _.uniq(_.pluck($scope.projects,'platform'));
 	$scope.formats = _.uniq(_.pluck($scope.projects,'format'));
 	$scope.industries = _.uniq(_.pluck($scope.projects,'industry'));
+	$scope.viewIndex = -1;
 
 	// INIT
 	$timeout(function(){
@@ -271,9 +272,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		else
 			$scope.swiper.prev();
 	}
-
-
-
 
 
 	// var isotope_container = $('#isotope_container');
