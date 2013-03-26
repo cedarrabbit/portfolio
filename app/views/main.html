@@ -40,51 +40,55 @@
 </div>
 
 <div class="view_projects view animated" ng-class="{visible:viewIndex==0}">
-	<div id='swipe_projects'>
-		  <ul>
-		    <li ng-repeat="project in projects">
-		    	<div class="project">
-		    		<div class="info">
-			    		<p class="title">{{project.name.toUpperCase()}}</p>
-			    		<div class="details">
-				    		<table>
-				    			<tbody>
-				    				<tr>
-				    					<th align="right">CLIENT</th>
-				    					<td>{{project.client}}</td>	
-				    				</tr>
-				    				<tr>
-				    					<th align="right">FORMAT</th>
-				    					<td>{{project.format}}</td>	
-				    				</tr>
-				    				<tr>
-				    					<th align="right">TECHNOLOGIES</th>
-				    					<td>{{project.platform}}</td>	
-				    				</tr>
-				    			</tbody>
-				    		</table>
-				    	</div>
-				    	<div class="demo_button" ng-repeat="demo in [1,2,3,4,5]">
-				    		<p>{{demo}}</p>
-				    		<img src="styles/image/icon/open_icon.png">
-				    	</div>
-		    		</div>
-		    		<div class="slides">
-		    			<ul class="slide_images">
-<!-- 		    				<li class="slide_image" ng-repeat="slide in project.slides" data-index="{{$index}}" >
-		    					<img ng-src="{{slide.image}}">
-		    				</li>
- -->		    			</ul>
-		    			<ul class="slide_map">
-		    				<li ng-repeat="slide in project.slides">
-		    					<div class="marker" ng-class="{marker_selected:slideIndex == $index}"></div>
-		    					<p>ITERATION 01</p>
-		    				</li>
-		    			</ul>
-		    		</div>
+	<div id="wrapper">
+	    <div id='slider' class='swipe'>
+	        <div>
+	        	<div class="project" ng-repeat="project in projects">
+	        		<div class="columns">
+
+			    		<div class="info">
+				    		<p class="title">{{project.name.toUpperCase()}}</p>
+				    		<div class="details">
+					    		<table>
+					    			<tbody>
+					    				<tr>
+					    					<th align="right">CLIENT</th>
+					    					<td>{{project.client}}</td>	
+					    				</tr>
+					    				<tr>
+					    					<th align="right">FORMAT</th>
+					    					<td>{{project.format}}</td>	
+					    				</tr>
+					    				<tr>
+					    					<th align="right">TECHNOLOGIES</th>
+					    					<td>{{project.platform}}</td>	
+					    				</tr>
+					    			</tbody>
+					    		</table>
+					    	</div>
+					    	<div class="demo_button" ng-repeat="demo in [1,2,3,4,5]">
+					    		<p>{{demo}}</p>
+					    		<img src="styles/image/icon/open_icon.png">
+					    	</div>
+			    		</div>
+
+			    		<div class="slides">
+			    			<ul class="slide_images">
+			    				<li class="slide_image" ng-repeat="slide in project.slides" data-index="{{$index}}" >
+			    					<img ng-src="{{slide.image}}">
+			    				</li>
+			    			</ul>
+			    			<ul class="slide_map">
+			    				<li ng-repeat="slide in project.slides">
+			    					<div class="marker" ng-class="{marker_selected:slideIndex == $index}"></div>
+			    					<p>ITERATION 01</p>
+			    				</li>
+			    			</ul>
+			    		</div>
+		        	</div>
 		    	</div>
-		    </li>
-		  </ul>
+	        </div>
+	    </div>
 	</div>
 
 	<div id="swipe_projects_prev" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == 0}" ng-tap="swipe(-1)">
@@ -98,9 +102,13 @@
 <div class="view_clients view animated" ng-class="{visible:viewIndex==1}">
 	<div class="left_column">
 		<div class="list">
-			<div class="item" ng-repeat="client in clients"></div>
+			<div class="item" ng-class="{client_selected:selectedClient==client}" ng-repeat="client in clients" ng-tap="clientSelection(client)"></div>
 		</div>
 	</div>
 	
-	<div class="right_column">PROJECTS</div>
+	<div class="right_column">
+		<div id="project_list" class="list"> 
+			<div class="item" ng-class="projectIdClass(project)" ng-repeat="project in projects"></div>
+		</div>
+	</div>
 </div>

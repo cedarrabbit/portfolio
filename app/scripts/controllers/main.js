@@ -257,9 +257,11 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$timeout(function(){
 		$scope.projectIndex = 0;
 		$scope.selectedProjects = [];
-
+		
 		$scope.$watch('viewIndex',function(val){
 			$scope.selectedProjects = [];
+			$scope.selectedClient = '';
+			$('#project_list').isotope({filter: ''});
 
 			switch(val)
 			{
@@ -271,7 +273,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		})
 
 		$('.slide_image').waypoint({
-			offset: -20,
 			handler:function(direction){
 				$scope.slideIndex = $(this).data('index');
 				$scope.$apply();
@@ -279,7 +280,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 			context: '.slide_images'
 		});
 
-		$scope.swiper = new Swipe(document.getElementById('swipe_projects'),{
+		$scope.swiper = new Swipe(document.getElementById('slider'),{
 			callback: function(index,el) {
 				$scope.projectIndex = $scope.swiper.getPos();
 				$scope.selectedProjects = [$scope.projects[$scope.swiper.getPos()].id];
@@ -288,8 +289,12 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 			}
 		});
 
-		// $('.client_list').css('background','red')
+		$('.list').isotope();
+
 	},1000);
+
+
+
 
 	$scope.swipe = function(dir) {
 		$scope.resetImageScroll();
@@ -300,11 +305,27 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 			$scope.swiper.prev();
 	}
 
+
+
+
 	$scope.resetImageScroll = function() {
 		$timeout(function(){
 			$('.slide_images').scrollTop(0);
 			$scope.slideIndex = 0;
 		},200)
+	}
+
+
+	$scope.projectIdClass = function(project) {
+		return project.id;
+	}
+
+	$scope.clientSelection = function(client) {
+		$scope.selectedClient = client;
+		$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.client == client}),'id');
+		var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
+
+		$('#project_list').isotope({filter: filteredProjects});
 	}
 
 

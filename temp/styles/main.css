@@ -6270,7 +6270,7 @@ ul {
   font-size: 9px;
   font-family: 'Michroma', sans-serif;
 }
-/* line 153, ../../app/styles/main.scss */
+/* line 152, ../../app/styles/main.scss */
 .menu .timeline .year {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -6278,7 +6278,7 @@ ul {
   -webkit-box-pack: end;
   margin-right: 10px;
 }
-/* line 160, ../../app/styles/main.scss */
+/* line 159, ../../app/styles/main.scss */
 .menu .timeline .year .dot {
   -webkit-border-radius: 4px;
   width: 8px;
@@ -6287,12 +6287,12 @@ ul {
   margin-top: 2px;
   -webkit-transition: .3s;
 }
-/* line 169, ../../app/styles/main.scss */
+/* line 168, ../../app/styles/main.scss */
 .menu .timeline .year .selected {
   background: #d90000;
 }
 
-/* line 180, ../../app/styles/main.scss */
+/* line 179, ../../app/styles/main.scss */
 .view {
   width: 100%;
   position: absolute;
@@ -6304,13 +6304,13 @@ ul {
   pointer-events: none;
 }
 
-/* line 191, ../../app/styles/main.scss */
+/* line 190, ../../app/styles/main.scss */
 .visible {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 196, ../../app/styles/main.scss */
+/* line 195, ../../app/styles/main.scss */
 .animated {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
@@ -6318,57 +6318,42 @@ ul {
   -webkit-transform-style: flat;
 }
 
-/* line 209, ../../app/styles/main.scss */
-.view_projects #swipe_projects_prev,
-.view_projects #swipe_projects_next {
+/* line 207, ../../app/styles/main.scss */
+.view_projects #wrapper {
   position: absolute;
-  top: 250px;
-  opacity: .3;
-}
-/* line 215, ../../app/styles/main.scss */
-.view_projects #swipe_projects_prev {
-  left: 10px;
-}
-/* line 219, ../../app/styles/main.scss */
-.view_projects #swipe_projects_next {
-  right: 10px;
-}
-/* line 223, ../../app/styles/main.scss */
-.view_projects .swipe_project_arrow_hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-/* line 228, ../../app/styles/main.scss */
-.view_projects #swipe_projects {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1200px;
   height: 100%;
+  width: 100%;
 }
-/* line 231, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul {
+/* line 216, ../../app/styles/main.scss */
+.view_projects .swipe {
+  position: relative;
   height: 100%;
+  width: 100%;
+  margin: 0 0px;
+  padding: 0px 0px;
 }
-/* line 234, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li {
-  background: red;
-}
-/* line 238, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project {
+/* line 225, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns {
   display: -webkit-box;
 }
-/* line 241, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info {
+/* line 228, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info {
   -webkit-box-orient: vertical;
   -webkit-box-align: end;
   width: 200px;
   padding: 0 50px;
 }
-/* line 247, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .title {
+/* line 234, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .title {
   font-size: 26px;
   color: #6c6c6c;
   margin: 0 0 6px 0;
 }
-/* line 253, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .details {
+/* line 240, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .details {
   width: 100%;
   height: 50px;
   padding: 4px 0;
@@ -6376,29 +6361,29 @@ ul {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-/* line 261, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .details table {
+/* line 248, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .details table {
   display: -webkit-box;
   -webkit-box-pack: end;
   width: 100%;
   font-size: 12px;
   text-align: right;
 }
-/* line 268, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .details table tr {
+/* line 255, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .details table tr {
   line-height: 14px;
 }
-/* line 272, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .details table th {
+/* line 259, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .details table th {
   color: #777777;
 }
-/* line 276, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .details table td {
+/* line 263, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .details table td {
   color: #777777;
   padding-left: 20px;
 }
-/* line 283, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .demo_button {
+/* line 270, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .demo_button {
   display: -webkit-box;
   -webkit-box-align: center;
   width: 200px;
@@ -6407,62 +6392,84 @@ ul {
   margin-bottom: 4px;
   background: #dddddd;
 }
-/* line 292, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .demo_button p {
+/* line 279, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .demo_button p {
   -webkit-box-flex: 1;
 }
-/* line 296, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .info .demo_button img {
+/* line 283, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .info .demo_button img {
   width: 20px;
   height: 15px;
   opacity: .2;
 }
-/* line 304, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides {
+/* line 291, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides {
+  display: -webkit-box;
   -webkit-box-flex: 1;
   margin-right: 50px;
 }
-/* line 308, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_map {
+/* line 296, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_map {
   border-left: 1px solid #dddddd;
   font-size: 9px;
   letter-spacing: 1px;
   color: #aeaeac;
 }
-/* line 314, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_map li {
+/* line 302, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_map li {
   display: -webkit-box;
   -webkit-box-pack: end;
   line-height: 9px;
   font-weight: bold;
 }
-/* line 320, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_map li .marker {
+/* line 308, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_map li .marker {
   width: 10px;
   height: 10px;
   margin: 0 4px 4px 4px;
   background: #dddddd;
 }
-/* line 327, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_map li .marker_selected {
+/* line 315, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_map li .marker_selected {
   background: #cccccc;
 }
-/* line 334, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_images {
+/* line 321, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_images {
   -webkit-box-flex: 1;
+  height: 500px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-/* line 339, ../../app/styles/main.scss */
-.view_projects #swipe_projects ul li .project .slides .slide_images img {
+/* line 327, ../../app/styles/main.scss */
+.view_projects .swipe .project .columns .slides .slide_images img {
   margin-bottom: 10px;
 }
-
+/* line 339, ../../app/styles/main.scss */
+.view_projects #swipe_projects_prev,
+.view_projects #swipe_projects_next {
+  position: absolute;
+  top: 250px;
+  opacity: .3;
+}
+/* line 345, ../../app/styles/main.scss */
+.view_projects #swipe_projects_prev {
+  left: 10px;
+}
+/* line 349, ../../app/styles/main.scss */
+.view_projects #swipe_projects_next {
+  right: 10px;
+}
 /* line 353, ../../app/styles/main.scss */
+.view_projects .swipe_project_arrow_hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* line 359, ../../app/styles/main.scss */
 .view_clients {
   display: -webkit-box;
 }
-/* line 356, ../../app/styles/main.scss */
+/* line 362, ../../app/styles/main.scss */
 .view_clients .left_column {
   width: 506px;
   height: 100%;
@@ -6470,24 +6477,44 @@ ul {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-/* line 364, ../../app/styles/main.scss */
+/* line 369, ../../app/styles/main.scss */
+.view_clients .left_column .list {
+  margin: 0 auto;
+}
+/* line 372, ../../app/styles/main.scss */
 .view_clients .left_column .list .item {
   width: 100px;
   height: 50px;
-  background: red;
+  margin: 4px;
+  background: #ccc;
 }
-/* line 374, ../../app/styles/main.scss */
+/* line 379, ../../app/styles/main.scss */
+.view_clients .left_column .list .client_selected {
+  border: 1px solid red;
+}
+/* line 386, ../../app/styles/main.scss */
 .view_clients .right_column {
   -webkit-box-flex: 1;
 }
+/* line 389, ../../app/styles/main.scss */
+.view_clients .right_column .list {
+  margin: 0 auto;
+}
+/* line 392, ../../app/styles/main.scss */
+.view_clients .right_column .list .item {
+  width: 100px;
+  height: 50px;
+  margin: 4px;
+  background: #ccc;
+}
 
-/* line 394, ../../app/styles/main.scss */
+/* line 417, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto;
   padding-right: 60px;
 }
 
-/* line 400, ../../app/styles/main.scss */
+/* line 423, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6498,7 +6525,7 @@ ul {
   transition-duration: 0.2s;
 }
 
-/* line 409, ../../app/styles/main.scss */
+/* line 432, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6507,7 +6534,7 @@ ul {
   transition-property: height, width;
 }
 
-/* line 417, ../../app/styles/main.scss */
+/* line 440, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6517,7 +6544,7 @@ ul {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 429, ../../app/styles/main.scss */
+/* line 452, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
