@@ -2,6 +2,8 @@
 
 joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
+	$scope.isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
+
 	$scope.persona = {
 		name:'JOSHUA DANIEL',
 		title:'UI/UX DESIGNER & DEVELOPER',
@@ -175,8 +177,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 				{image:'styles/image/accenture_02.jpg'},
 				{image:'styles/image/accenture_03.jpg'},
 				{image:'styles/image/accenture_04.jpg'},
-				{image:'styles/image/accenture_05.jpg'},
-				{image:'styles/image/accenture_06.jpg'}
+				{image:'styles/image/accenture_05.jpg'}
 			]
 		},
 		{id:'p19', date:'2005',platform:'Flash',format:'Website',client:'Flixters',name:'Flixters',description:'Mobile Video Content',thumb:'styles/image/grid/flixters_grid.jpg',
@@ -250,27 +251,60 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.technologies = _.uniq(_.pluck($scope.projects,'platform'));
 	$scope.formats = _.uniq(_.pluck($scope.projects,'format'));
 	$scope.industries = _.uniq(_.pluck($scope.projects,'industry'));
-	$scope.viewIndex = -1;
+	$scope.viewIndex = 5;
 
 	// INIT
 	$timeout(function(){
 		$scope.projectIndex = 0;
-		$scope.selectedProjects = [$scope.projects[0].id];
+		$scope.selectedProjects = [];
+
+		$scope.$watch('viewIndex',function(val){
+			$scope.selectedProjects = [];
+
+			switch(val)
+			{
+				case 0:
+					$scope.swiper.slide(0,0);
+					$scope.selectedProjects = [$scope.projects[0].id];
+					break;
+			}
+		})
+
+		$('.slide_image').waypoint({
+			offset: -20,
+			handler:function(direction){
+				$scope.slideIndex = $(this).data('index');
+				$scope.$apply();
+			},
+			context: '.slide_images'
+		});
 
 		$scope.swiper = new Swipe(document.getElementById('swipe_projects'),{
 			callback: function(index,el) {
 				$scope.projectIndex = $scope.swiper.getPos();
 				$scope.selectedProjects = [$scope.projects[$scope.swiper.getPos()].id];
+				$scope.resetImageScroll();
 				$scope.$apply();
 			}
 		});
-	},0);
+
+		// $('.client_list').css('background','red')
+	},1000);
 
 	$scope.swipe = function(dir) {
+		$scope.resetImageScroll();
+
 		if(dir > 0)
 			$scope.swiper.next();
 		else
 			$scope.swiper.prev();
+	}
+
+	$scope.resetImageScroll = function() {
+		$timeout(function(){
+			$('.slide_images').scrollTop(0);
+			$scope.slideIndex = 0;
+		},200)
 	}
 
 
