@@ -91,27 +91,27 @@ ul {
 	}
 
 	.marker_selected_0 {
-		-webkit-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(533px,0,0);
 	}
 
 	.marker_selected_1 {
-		-webkit-transform: translate3d(100px,0,0);
+		-webkit-transform: translate3d(0,0,0);
 	}
 
 	.marker_selected_2 {
-		-webkit-transform: translate3d(200px,0,0);
+		-webkit-transform: translate3d(100px,0,0);
 	}
 
 	.marker_selected_3 {
-		-webkit-transform: translate3d(300px,0,0);
+		-webkit-transform: translate3d(200px,0,0);
 	}
 
 	.marker_selected_4 {
-		-webkit-transform: translate3d(400px,0,0);
+		-webkit-transform: translate3d(300px,0,0);
 	}
 
 	.marker_selected_5 {
-		-webkit-transform: translate3d(533px,0,0);
+		-webkit-transform: translate3d(400px,0,0);
 	}
 
 	.item,
@@ -356,7 +356,7 @@ ul {
 	}
 }
 
-.view_clients {
+.view_filters {
 	display: -webkit-box;
 
 	.left_column {
@@ -368,6 +368,9 @@ ul {
 		
 		.list {
 			margin: 0 auto;
+			display: none;
+			pointer-events: none;
+
 
 			.item {
 				width: 100px;
@@ -377,9 +380,21 @@ ul {
 			}
 
 			.client_selected {
-				border: 1px solid red;
+				border: 1px solid $selected;
 			}
+
+			.tech_selected,
+			.format_selected,
+			.industry_selected {
+				border: 1px solid $selected;
+			}
+
 		};
+
+		.list_visible {
+			display: block;
+			pointer-events: all;
+		}
 
 	};
 

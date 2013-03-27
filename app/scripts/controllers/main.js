@@ -251,23 +251,39 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.technologies = _.uniq(_.pluck($scope.projects,'platform'));
 	$scope.formats = _.uniq(_.pluck($scope.projects,'format'));
 	$scope.industries = _.uniq(_.pluck($scope.projects,'industry'));
-	$scope.viewIndex = 5;
+	$scope.viewIndex = 0;
 
 	// INIT
 	$timeout(function(){
 		$scope.projectIndex = 0;
 		$scope.selectedProjects = [];
+		$scope.selectedProject = '';
+		$scope.selectedTech = '';
+		$scope.selectedFormat = '';
+		$scope.selectedIndustry = '';
 		
 		$scope.$watch('viewIndex',function(val){
 			$scope.selectedProjects = [];
 			$scope.selectedClient = '';
+			$scope.selectedTech = '';
+			$scope.selectedFormat = '';
+			$scope.selectedIndustry = '';
+			$scope.projectIndex = 0;
 			$('#project_list').isotope({filter: ''});
 
 			switch(val)
 			{
-				case 0:
-					$scope.swiper.slide(0,0);
-					$scope.selectedProjects = [$scope.projects[0].id];
+				case 1:
+					if(!$scope.selectedProject)
+					{
+						$scope.swiper.slide(0,0);
+						$scope.selectedProjects = [$scope.projects[0].id];
+					} else {
+						$scope.swiper.slide(_.pluck($scope.projects,'id').indexOf($scope.selectedProject.id),0);
+						$scope.selectedProjects = [$scope.selectedProject.id];
+					}
+					break;
+				case 2:
 					break;
 			}
 		})
@@ -290,7 +306,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		});
 
 		$('.list').isotope();
-
 	},1000);
 
 
@@ -305,9 +320,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 			$scope.swiper.prev();
 	}
 
-
-
-
 	$scope.resetImageScroll = function() {
 		$timeout(function(){
 			$('.slide_images').scrollTop(0);
@@ -315,68 +327,70 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		},200)
 	}
 
-
 	$scope.projectIdClass = function(project) {
 		return project.id;
 	}
 
+	// *** SELECTION METHODS HAVE A SIMILAR PATTERN, TODO: WRITE A SINGLE METHOD THAT HANDLES ALL OF THEM
 	$scope.clientSelection = function(client) {
-		$scope.selectedClient = client;
-		$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.client == client}),'id');
-		var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
+		if($scope.selectedClient == client) {
+			$scope.selectedClient = '';
+			$scope.selectedProjects = [];
+			$('#project_list').isotope({filter:''});
+		} else {
+			$scope.selectedClient = client;
+			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.client == client}),'id');
+			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
-		$('#project_list').isotope({filter: filteredProjects});
+			$('#project_list').isotope({filter: filteredProjects});
+		}
 	}
 
+	$scope.techSelection = function(tech) {
+		if($scope.selectedTech == tech) {
+			$scope.selectedTech = '';
+			$scope.selectedProjects = [];
+			$('#project_list').isotope({filter:''});
+		} else {
+			$scope.selectedTech = tech;
+			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.platform == tech}),'id');
+			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
-	// var isotope_container = $('#isotope_container');
+			$('#project_list').isotope({filter: filteredProjects});
+		}
+	}
 
-	// $scope.isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
-	// $scope.filtering = false;
-	// $scope.filters = [];
-	// $scope.filtered_projects = [];
-	// $scope.filter_date = _.uniq(_.pluck($scope.projects,'date'));
-	// $scope.filter_platform = _.uniq(_.pluck($scope.projects,'platform'));
-	// $scope.filter_format = _.uniq(_.pluck($scope.projects,'format'));
-	// $scope.filter_client = _.uniq(_.pluck($scope.projects,'client'));
-	// $scope.filtered_total = $scope.projects.length;
-	// $scope.detail_index = 0;
+	$scope.formatSelection = function(format) {
+		if($scope.selectedFormat == format) {
+			$scope.selectedFormat = '';
+			$scope.selectedProjects = [];
+			$('#project_list').isotope({filter:''});
+		} else {
+			$scope.selectedFormat = format;
+			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.format == format}),'id');
+			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
-	// $timeout(function(){
-	// 	isotope_container.isotope({
-	// 		itemSelector: '.project',
-	// 		animationEngine: 'css'
-	// 	})
+			$('#project_list').isotope({filter: filteredProjects});
+		}
+	}
 
-	// 	$scope.contentReady = true;
-	// },1000);
+	$scope.industrySelection = function(industry) {
+		if($scope.selectedIndustry == industry) {
+			$scope.selectedIndustry = '';
+			$scope.selectedProjects = [];
+			$('#project_list').isotope({filter:''});
+		} else {
+			$scope.selectedIndustry = industry;
+			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.industry == industry}),'id');
+			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
-	// $scope.selectProject = function(project) {
-	// 	if(!$scope.filtering)
-	// 	{
-	// 		$scope.selectedProject = project;
-	// 		$timeout(function(){
-	// 			$scope.swiper = new Swipe(document.getElementById('swipe'),{
-	// 				callback: function(event,index,elem) {
-	// 					$scope.detail_index = index;
-	// 					$scope.$apply();
-	// 				}
-	// 			});
-	// 		},0)
-	// 	}
-	// }
+			$('#project_list').isotope({filter: filteredProjects});
+		}
+	}
 
-	// $scope.swipe = function(dir) {
-	// 	dir > 0 ? $scope.swiper.next() : $scope.swiper.prev();
-	// }
-
-	// $scope.showSlide = function(index) {
-	// 	$scope.swiper.slide(index);
-	// }
-
-	// $scope.closeDetail = function() {
-	// 	$scope.selectedProject=false;
-	// 	$scope.detail_index = 0;
-	// }
+	$scope.projectSelection = function(project) {
+		$scope.selectedProject = project;
+		$scope.viewIndex = 1;
+	}
 
 });

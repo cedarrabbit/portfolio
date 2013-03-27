@@ -6212,27 +6212,27 @@ ul {
 }
 /* line 93, ../../app/styles/main.scss */
 .menu .marker_selected_0 {
-  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(533px, 0, 0);
 }
 /* line 97, ../../app/styles/main.scss */
 .menu .marker_selected_1 {
-  -webkit-transform: translate3d(100px, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 /* line 101, ../../app/styles/main.scss */
 .menu .marker_selected_2 {
-  -webkit-transform: translate3d(200px, 0, 0);
+  -webkit-transform: translate3d(100px, 0, 0);
 }
 /* line 105, ../../app/styles/main.scss */
 .menu .marker_selected_3 {
-  -webkit-transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(200px, 0, 0);
 }
 /* line 109, ../../app/styles/main.scss */
 .menu .marker_selected_4 {
-  -webkit-transform: translate3d(400px, 0, 0);
+  -webkit-transform: translate3d(300px, 0, 0);
 }
 /* line 113, ../../app/styles/main.scss */
 .menu .marker_selected_5 {
-  -webkit-transform: translate3d(533px, 0, 0);
+  -webkit-transform: translate3d(400px, 0, 0);
 }
 /* line 118, ../../app/styles/main.scss */
 .menu .item,
@@ -6466,11 +6466,11 @@ ul {
 }
 
 /* line 359, ../../app/styles/main.scss */
-.view_clients {
+.view_filters {
   display: -webkit-box;
 }
 /* line 362, ../../app/styles/main.scss */
-.view_clients .left_column {
+.view_filters .left_column {
   width: 506px;
   height: 100%;
   border-right: 1px solid #dddddd;
@@ -6478,43 +6478,56 @@ ul {
   -webkit-overflow-scrolling: touch;
 }
 /* line 369, ../../app/styles/main.scss */
-.view_clients .left_column .list {
+.view_filters .left_column .list {
   margin: 0 auto;
+  display: none;
+  pointer-events: none;
 }
-/* line 372, ../../app/styles/main.scss */
-.view_clients .left_column .list .item {
+/* line 375, ../../app/styles/main.scss */
+.view_filters .left_column .list .item {
   width: 100px;
   height: 50px;
   margin: 4px;
   background: #ccc;
 }
-/* line 379, ../../app/styles/main.scss */
-.view_clients .left_column .list .client_selected {
-  border: 1px solid red;
+/* line 382, ../../app/styles/main.scss */
+.view_filters .left_column .list .client_selected {
+  border: 1px solid #d90000;
 }
-/* line 386, ../../app/styles/main.scss */
-.view_clients .right_column {
+/* line 388, ../../app/styles/main.scss */
+.view_filters .left_column .list .tech_selected,
+.view_filters .left_column .list .format_selected,
+.view_filters .left_column .list .industry_selected {
+  border: 1px solid #d90000;
+}
+/* line 394, ../../app/styles/main.scss */
+.view_filters .left_column .list_visible {
+  display: block;
+  pointer-events: all;
+}
+/* line 401, ../../app/styles/main.scss */
+.view_filters .right_column {
   -webkit-box-flex: 1;
 }
-/* line 389, ../../app/styles/main.scss */
-.view_clients .right_column .list {
+/* line 404, ../../app/styles/main.scss */
+.view_filters .right_column .list {
   margin: 0 auto;
 }
-/* line 392, ../../app/styles/main.scss */
-.view_clients .right_column .list .item {
+/* line 407, ../../app/styles/main.scss */
+.view_filters .right_column .list .item {
   width: 100px;
   height: 50px;
   margin: 4px;
   background: #ccc;
 }
 
-/* line 417, ../../app/styles/main.scss */
+/* line 432, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto;
   padding-right: 60px;
 }
 
-/* line 423, ../../app/styles/main.scss */
+/* line 438, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6525,7 +6538,7 @@ ul {
   transition-duration: 0.2s;
 }
 
-/* line 432, ../../app/styles/main.scss */
+/* line 447, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6534,7 +6547,7 @@ ul {
   transition-property: height, width;
 }
 
-/* line 440, ../../app/styles/main.scss */
+/* line 455, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6544,7 +6557,7 @@ ul {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 452, ../../app/styles/main.scss */
+/* line 467, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {

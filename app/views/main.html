@@ -2,8 +2,6 @@
 	<div class="name">{{persona.name}} <span>{{persona.title}}</span></div>
 </div>
 
-
-
 <div class="menu">
 	<div class="marker animated" ng-class="{marker_selected_0:viewIndex==0,marker_selected_1:viewIndex==1,marker_selected_2:viewIndex==2,marker_selected_3:viewIndex==3,marker_selected_4:viewIndex==4,marker_selected_5:viewIndex==5}">
 		<svg >
@@ -11,27 +9,27 @@
 		</svg>
 	</div>
 	
-	<div class="item" ng-class="{marker_selected:viewIndex==0}" ng-tap="viewIndex=0">
+	<div class="item" ng-class="{marker_selected:viewIndex==1}" ng-tap="viewIndex=1">
 		<p>{{projects.length}}</p>
 		<p>PROJECTS</p>
 	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==1}" ng-tap="viewIndex=1">
+	<div class="item" ng-class="{marker_selected:viewIndex==2}" ng-tap="viewIndex=2">
 		<p>{{clients.length}}</p>
 		<p>CLIENTS</p>
 	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==2}" ng-tap="viewIndex=2">
+	<div class="item" ng-class="{marker_selected:viewIndex==3}" ng-tap="viewIndex=3">
 		<p>{{technologies.length}}</p>
 		<p>TECHNOLOGIES</p>
 	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==3}" ng-tap="viewIndex=3">
+	<div class="item" ng-class="{marker_selected:viewIndex==4}" ng-tap="viewIndex=4">
 		<p>{{formats.length}}</p>
 		<p>FORMATS</p>
 	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==4}" ng-tap="viewIndex=4">
+	<div class="item" ng-class="{marker_selected:viewIndex==5}" ng-tap="viewIndex=5">
 		<p>{{industries.length}}</p>
 		<p>INDUSTRIES</p>
 	</div>
-	<div class="timeline" timeline ng-tap="viewIndex=5">
+	<div class="timeline" timeline ng-tap="viewIndex=0">
 		<div class="year" ng-repeat="item in timeline">
 			<div class="dot" ng-class="{selected:selectedProjects.indexOf(project.id)!=-1}" ng-repeat="project in item"></div>
 			<p>{{timeline_labels[$index]}}</p>
@@ -39,7 +37,11 @@
 	</div>
 </div>
 
-<div class="view_projects view animated" ng-class="{visible:viewIndex==0}">
+<div class="view_timeline view animated" ng-class="{visible:viewIndex==0}">
+	TIMELINE
+</div>
+
+<div class="view_projects view animated" ng-class="{visible:viewIndex==1}">
 	<div id="wrapper">
 	    <div id='slider' class='swipe'>
 	        <div>
@@ -99,16 +101,25 @@
 	</div>
 </div>
 
-<div class="view_clients view animated" ng-class="{visible:viewIndex==1}">
+<div class="view_filters view animated" ng-class="{visible:viewIndex>1}">
 	<div class="left_column">
-		<div class="list">
+		<div class="list" ng-class="{list_visible:viewIndex==2}">
 			<div class="item" ng-class="{client_selected:selectedClient==client}" ng-repeat="client in clients" ng-tap="clientSelection(client)"></div>
+		</div>
+		<div class="list" ng-class="{list_visible:viewIndex==3}">
+			<div class="item" ng-class="{tech_selected:selectedTech==tech}" ng-repeat="tech in technologies" ng-tap="techSelection(tech)"></div>
+		</div>
+		<div class="list" ng-class="{list_visible:viewIndex==4}">
+			<div class="item" ng-class="{format_selected:selectedFormat==format}" ng-repeat="format in formats" ng-tap="formatSelection(format)"></div>
+		</div>
+		<div class="list" ng-class="{list_visible:viewIndex==5}">
+			<div class="item" ng-class="{industry_selected:selectedIndustry==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)"></div>
 		</div>
 	</div>
 	
 	<div class="right_column">
 		<div id="project_list" class="list"> 
-			<div class="item" ng-class="projectIdClass(project)" ng-repeat="project in projects"></div>
+			<div class="item" ng-class="projectIdClass(project)" ng-repeat="project in projects" ng-tap="projectSelection(project)"></div>
 		</div>
 	</div>
 </div>
