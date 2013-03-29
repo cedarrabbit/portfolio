@@ -38,7 +38,7 @@
 </div>
 
 <div class="view_timeline view animated" ng-class="{visible:viewIndex==0}">
-	TIMELINE
+	<img src="/styles/image/timeline.png">
 </div>
 
 <div class="view_projects view animated" ng-class="{visible:viewIndex==1}">
@@ -47,8 +47,9 @@
 	        <div>
 	        	<div class="project" ng-repeat="project in projects">
 	        		<div class="columns">
+	        			<div class="info_button" ng-tap="toggleInfo()"></div>
 
-			    		<div class="info">
+			    		<div class="info" ng-class="{info_open:projectInfoVisible}">
 				    		<p class="title">{{project.name.toUpperCase()}}</p>
 				    		<div class="details">
 					    		<table>
@@ -104,22 +105,44 @@
 <div class="view_filters view animated" ng-class="{visible:viewIndex>1}">
 	<div class="left_column">
 		<div class="list" ng-class="{list_visible:viewIndex==2}">
-			<div class="item" ng-class="{client_selected:selectedClient==client}" ng-repeat="client in clients" ng-tap="clientSelection(client)"></div>
+			<div class="item_logo" ng-class="{client_selected:selectedFilter==client}" ng-repeat="client in clients" ng-tap="clientSelection(client)">
+				<img ng-src="{{logos[client]}}">
+			</div>
 		</div>
 		<div class="list" ng-class="{list_visible:viewIndex==3}">
-			<div class="item" ng-class="{tech_selected:selectedTech==tech}" ng-repeat="tech in technologies" ng-tap="techSelection(tech)"></div>
+			<div class="item_chart" ng-class="{filter_selected:selectedFilter==platform}" ng-repeat="platform in technologies" ng-tap="techSelection(platform)">
+				<div class="chart" data-type="platform" filter-vis></div>
+				<div class="perc">
+					<span>{{perc}}</span><span>%</span>
+				</div>
+				<p class="title">{{title}}</p>
+			</div>
 		</div>
 		<div class="list" ng-class="{list_visible:viewIndex==4}">
-			<div class="item" ng-class="{format_selected:selectedFormat==format}" ng-repeat="format in formats" ng-tap="formatSelection(format)"></div>
+			<div class="item_chart" ng-class="{filter_selected:selectedFilter==format}" ng-repeat="format in formats" ng-tap="formatSelection(format)">
+				<div class="chart" data-type="format" filter-vis></div>
+				<div class="perc">
+					<span>{{perc}}</span><span>%</span>
+				</div>
+				<p class="title">{{title}}</p>
+			</div>
 		</div>
 		<div class="list" ng-class="{list_visible:viewIndex==5}">
-			<div class="item" ng-class="{industry_selected:selectedIndustry==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)"></div>
+			<div class="item_chart" ng-class="{filter_selected:selectedIndustry==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)">
+				<div class="chart" data-type="industry" filter-vis></div>
+				<div class="perc">
+					<span>{{perc}}</span><span>%</span>
+				</div>
+				<p class="title">{{title}}</p>
+			</div>
 		</div>
 	</div>
 	
 	<div class="right_column">
 		<div id="project_list" class="list"> 
-			<div class="item" ng-class="projectIdClass(project)" ng-repeat="project in projects" ng-tap="projectSelection(project)"></div>
+			<div class="item_thumb" ng-class="projectIdClass(project)" ng-repeat="project in projects" ng-tap="projectSelection(project)">
+				<img ng-src="{{project.thumb}}" ng-class="{thumb_visible:selectedFilter}">
+			</div>
 		</div>
 	</div>
 </div>

@@ -4,77 +4,42 @@ joshuaApp.directive('filterVis', function() {
 	return {
 		restrict: 'A',
 		link: function postLink(scope, element, attrs) {
-			var w = 120,
-			h = 120,
-			pi = Math.PI,
-			fields = [
-				{previous: 0, value: 1}
-			];
+			var pi = Math.PI;
+			var w = 140;
+			var h = 140;
+			var vals = _.countBy(scope.projects,function(project){ return project[attrs.type]});
+			var val = vals[scope[attrs.type]]/scope.projects.length;
 
-			var arc = d3.svg.arc()
-				.innerRadius(30)
-				.outerRadius(38)
-				.startAngle(0)
-				.endAngle(function(d) { return d.value * 2 * Math.PI });
+			scope.perc = Math.round(val*100);
+			scope.title = scope[attrs.type];
 
+			var vis = d3.select(element[0]).append("svg");
 
+			var group_track = vis.append("svg:g")
+			    .attr("transform","translate("+ (w/2) + "," + (h/2) + ")");
 
+			var group_val = vis.append("svg:g")
+			    .attr("transform","translate("+ (w/2) + "," + (h/2) + ")");
 
-			///////////////////////////////////////////////////////////
-			// CREATE VIS & GROUPS ////////////////////////////////////
-			///////////////////////////////////////////////////////////
+			var arc_track = d3.svg.arc()
+			    .innerRadius(50)
+			    .outerRadius(65)
+			    .startAngle(0)
+			    .endAngle(270*(pi/180)); 
 
-			// VIS
-			var vis = d3.select("svg");
+			var arc_val = d3.svg.arc()
+			    .innerRadius(50)
+			    .outerRadius(65)
+			    .startAngle(0)
+			    .endAngle((270*val)*(pi/180)); 
 
-			// GROUP FOR ARCS/PATHS
-			var arc_group = vis.append("svg:g")
-				.attr("transform", "translate(" + (w/2) + "," + (h/2) + ")");
+			group_track.append("path")
+			    .attr("d", arc_track)
+			    .attr("class","chart_track");
 
-			var circ = vis.append("circle")
-				.attr("r", 30)
-				.attr("class","filter_circ")
-				.attr("transform", "translate(" + (w/2) + "," + (h/2) + ")")
-				.attr("filter","url(#f1)");
-
-
-			///////////////////////////////////////////////////////////
-			// DATA ///////////////////////////////////////////////////
-			///////////////////////////////////////////////////////////
-
-			scope.$watch('filtered_total', function(o,n,e){
-				fields[0].previous = fields[0].value; 
-				fields[0].value = o/scope.projects.length;
-
-				var path = arc_group.selectAll("path")
-					.data(fields.filter(function(d) { return d.value; }))
-
-				path.enter().append("path")
-				.transition()
-				// .ease("elastic")
-				.duration(750)
-				.attrTween("d", arcTween)
-
-				path.transition()
-				.attr('class','filter_arc')
-				// .ease("elastic")
-				.duration(750)
-				.attrTween("d", arcTween);
-
-				path.exit().transition()
-				// .ease("bounce")
-				.duration(750)
-				.attrTween("d", arcTween)
-				.remove();
-
-			}, 1000);
-
-			function arcTween(b) {
-				var i = d3.interpolate({value: b.previous}, b);
-				return function(t) {
-					return arc(i(t));
-				};
-			}
+			group_val.append("path")
+			    .attr("d", arc_val)
+			    .attr("class","chart_val");
 		}
 	};
 });

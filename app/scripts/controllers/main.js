@@ -204,7 +204,7 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 				{image:'styles/image/twt_06.jpg'}
 			]
 		},
-		{id:'p22', date:'2004',platform:'Flash',format:'Website',client:'Brew PR',name:'Brew PR',description:'Company Website',thumb:'styles/image/grid/brew_grid.jpg',
+		{id:'p22', date:'2004',platform:'Flash',format:'Website',client:'Brew Media Relations',name:'Brew Media Relations',description:'Company Website',thumb:'styles/image/grid/brew_grid.jpg',
 			slides:[
 				{image:'styles/image/brew_01.jpg'},
 				{image:'styles/image/brew_02.jpg'},
@@ -247,6 +247,32 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		}
 	];
 
+	// THIS SHOULD BE ACCOMPLISHED VIA DATA;
+	// {client:{name:'Accenture',logo:'logo.png'}}
+	// TBD: IMPROVE CLIENT DATA PARSING
+	$scope.logos = {
+		"Huawei":"/styles/image/logo/logo_huawei.jpg",
+		"Barclays":"/styles/image/logo/logo_barclays.jpg",
+		"Brew Media Relations":"/styles/image/logo/logo_brew.jpg",
+		"Accenture":"/styles/image/logo/logo_accenture.jpg",
+		"US Army":"/styles/image/logo/logo_army.jpg",
+		"Deloitte":"/styles/image/logo/logo_deloitte.jpg",
+		"Discovery":"/styles/image/logo/logo_discovery.jpg",
+		"FINRA":"/styles/image/logo/logo_finra.jpg",
+		"Flixters":"/styles/image/logo/logo_flixers.jpg",
+		"FuelQuest":"/styles/image/logo/logo_fuelquest.jpg",
+		"Maximus":"/styles/image/logo/logo_maximus.jpg",
+		"McGraw-Hill":"/styles/image/logo/logo_mcgrawhill.jpg",
+		"NASA":"/styles/image/logo/logo_nasa.jpg",
+		"Nigels":"/styles/image/logo/logo_nigels.jpg",
+		"Oingo Bingo":"/styles/image/logo/logo_oingobingo.jpg",
+		"Parrimark":"/styles/image/logo/logo_parrimark.jpg",
+		"PHMSA":"/styles/image/logo/logo_phmsa.jpg",
+		"Toyota":"/styles/image/logo/logo_toyota.jpg",
+		"The Writing Team":"/styles/image/logo/logo_twt.jpg",
+		"Indiana University":"/styles/image/logo/logo_iu.jpg",
+	}
+
 	$scope.clients = _.uniq(_.pluck($scope.projects,'client'));
 	$scope.technologies = _.uniq(_.pluck($scope.projects,'platform'));
 	$scope.formats = _.uniq(_.pluck($scope.projects,'format'));
@@ -258,16 +284,11 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		$scope.projectIndex = 0;
 		$scope.selectedProjects = [];
 		$scope.selectedProject = '';
-		$scope.selectedTech = '';
-		$scope.selectedFormat = '';
-		$scope.selectedIndustry = '';
+		$scope.projectInfoVisible = true;
 		
 		$scope.$watch('viewIndex',function(val){
 			$scope.selectedProjects = [];
-			$scope.selectedClient = '';
-			$scope.selectedTech = '';
-			$scope.selectedFormat = '';
-			$scope.selectedIndustry = '';
+			$scope.selectedFilter = '';
 			$scope.projectIndex = 0;
 			$('#project_list').isotope({filter: ''});
 
@@ -309,8 +330,6 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	},1000);
 
 
-
-
 	$scope.swipe = function(dir) {
 		$scope.resetImageScroll();
 
@@ -333,12 +352,12 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 
 	// *** SELECTION METHODS HAVE A SIMILAR PATTERN, TODO: WRITE A SINGLE METHOD THAT HANDLES ALL OF THEM
 	$scope.clientSelection = function(client) {
-		if($scope.selectedClient == client) {
-			$scope.selectedClient = '';
+		if($scope.selectedFilter == client) {
+			$scope.selectedFilter = '';
 			$scope.selectedProjects = [];
 			$('#project_list').isotope({filter:''});
 		} else {
-			$scope.selectedClient = client;
+			$scope.selectedFilter = client;
 			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.client == client}),'id');
 			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
@@ -347,12 +366,12 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	}
 
 	$scope.techSelection = function(tech) {
-		if($scope.selectedTech == tech) {
-			$scope.selectedTech = '';
+		if($scope.selectedFilter == tech) {
+			$scope.selectedFilter = '';
 			$scope.selectedProjects = [];
 			$('#project_list').isotope({filter:''});
 		} else {
-			$scope.selectedTech = tech;
+			$scope.selectedFilter = tech;
 			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.platform == tech}),'id');
 			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
@@ -361,12 +380,12 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	}
 
 	$scope.formatSelection = function(format) {
-		if($scope.selectedFormat == format) {
-			$scope.selectedFormat = '';
+		if($scope.selectedFilter == format) {
+			$scope.selectedFilter = '';
 			$scope.selectedProjects = [];
 			$('#project_list').isotope({filter:''});
 		} else {
-			$scope.selectedFormat = format;
+			$scope.selectedFilter = format;
 			$scope.selectedProjects = _.pluck(_.filter($scope.projects,function(project){ return project.format == format}),'id');
 			var filteredProjects = _.map($scope.selectedProjects, function(val) { return '.' + val}).join();
 
@@ -391,6 +410,10 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 	$scope.projectSelection = function(project) {
 		$scope.selectedProject = project;
 		$scope.viewIndex = 1;
+	}
+
+	$scope.toggleInfo = function() {
+		$scope.projectInfoVisible = !$scope.projectInfoVisible;
 	}
 
 });

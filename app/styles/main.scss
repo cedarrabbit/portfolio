@@ -1,6 +1,6 @@
 @import "compass_twitter_bootstrap";
 
-$body_bg: rgb(230,230,230);
+$body_bg: rgb(255,255,255);
 $header_bg: rgb(0,0,0);
 $header_border: rgb(50,50,50);
 $menu_bg: rgb(238,238,238);
@@ -12,6 +12,8 @@ $text_active: rgb(108,108,108);
 $selected: rgb(217,0,0);
 $table_header: rgb(119,119,119);
 $table_text: rgb(151,151,151);
+$filter_color: rgba(0,0,0,.5);
+$chart_val: rgb(109,109,109);
 
 
 *:not(html)
@@ -135,7 +137,6 @@ ul {
 		font-size: 12px;
 		color: $text_intactive;
 
-
 		p:first-of-type {
 			font-size: 22px;
 			font-family: 'Michroma', sans-serif;
@@ -162,7 +163,7 @@ ul {
 				height: 8px;
 				background: $line;
 				margin-top: 2px;
-				-webkit-transition: .3s;
+				// -webkit-transition: .3s;
 			}
 
 			.selected {
@@ -202,6 +203,15 @@ ul {
 
 
 // VIEWS
+.view_timeline {
+	display: -webkit-box;
+	-webkit-box-pack: center;
+
+	img {
+		margin: 0 auto;
+	}
+}
+
 .view_projects {
 
 	#wrapper {
@@ -224,12 +234,28 @@ ul {
 
 			.columns {
 				display: -webkit-box;
+
+				.info_button {
+					width: 30px;
+					height: 30px;
+					position: absolute;
+					top: 0;
+					left: 10px;
+					z-index: 100;
+					background: black;
+				}
 	
+				.info_open {
+					width: 200px !important;
+				}
+
 				.info {
 					-webkit-box-orient: vertical;
 					-webkit-box-align: end;
-					width: 200px;
-					padding: 0 50px;
+					width: 0;
+					padding: 0 50px 0 80px;
+					overflow: hidden;
+					-webkit-transition: 1s;
 
 					.title {
 						font-size: 26px;
@@ -371,24 +397,74 @@ ul {
 			display: none;
 			pointer-events: none;
 
-
 			.item {
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
 				width: 100px;
 				height: 50px;
 				margin: 4px;
 				background: #ccc;
+				color: $filter_color;
+			}
+
+			.item_logo {
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				width: 90px;
+				height: 60px;
+				margin: 4px;
+				border: 1px solid white;
+				background: white;
+				padding: 8px;
+
+				img {
+					width: 100%;
+					height: auto;
+					opacity: .5;
+				}
+			}
+
+			.item_chart {
+				width: 150px;
+				height: 150px;
+				margin: 4px;
+
+				.perc {
+					display: -webkit-box;
+					-webkit-box-pack: center;
+					width: 100%;
+					position: absolute;
+					top: 70px;
+					font-size: 20px;
+					font-weight: normal;
+
+					span:first-of-type {
+						font-family: 'Michroma', sans-serif;
+						font-size: 30px;
+					}
+
+					span:last-of-type {
+						font-size: 20px;
+					}
+				}
+
+				.title {
+					width: 65px;
+					position: absolute;
+					top: 120px;
+					left: 40px;
+					text-align: center;
+					font-size: 16px;
+					line-height: 13px;
+				}
 			}
 
 			.client_selected {
 				border: 1px solid $selected;
+				color: $selected;
 			}
-
-			.tech_selected,
-			.format_selected,
-			.industry_selected {
-				border: 1px solid $selected;
-			}
-
 		};
 
 		.list_visible {
@@ -410,9 +486,51 @@ ul {
 				margin: 4px;
 				background: #ccc;
 			}
+
+			.item_thumb {
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				width: 77px;
+				height: 60px;
+				margin: 4px;
+				border: 1px solid white;
+				background: $line;
+
+				.thumb_visible {
+					visibility: visible;
+				}
+
+				img {
+					width: auto;
+					height: 100%;
+					-webkit-filter: grayscale(100%);  
+					opacity: .5;
+					visibility: hidden;
+				}
+			}
 		};
 	};
 
+}
+
+// CHART
+.chart {
+	-webkit-transform: rotate(225deg);
+}
+
+.chart_track {
+	fill: $line;
+}
+
+.chart_val {
+	fill: $chart_val;
+}
+
+.filter_selected .chart_val,
+.filter_selected .perc {
+	color: $selected;
+	fill: $selected;
 }
 
 
