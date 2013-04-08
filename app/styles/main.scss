@@ -7,7 +7,7 @@ $menu_bg: rgb(238,238,238);
 $shadow: rgba(0,0,0,.3);
 $title: rgb(204,204,204);
 $line: rgb(221,221,221);
-$text_intactive: rgb(174,174,172);
+$text_inactive: rgb(174,174,172);
 $text_active: rgb(108,108,108);
 $selected: rgb(217,0,0);
 $table_header: rgb(119,119,119);
@@ -18,11 +18,6 @@ $chart_val: rgb(109,109,109);
 
 *:not(html)
 {
-    // -webkit-user-select: none;
-    // margin:0px;
-	// -webkit-backface-visibility: hidden;
-	// -webkit-perspective: 1000;
-    // -webkit-transform:translate3d(0,0,0);
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0); 
 }
@@ -39,7 +34,7 @@ body,
 	font-family: pt-sans-narrow, serif;
 	cursor: default;
 	background: $body_bg;
-	color: $text_intactive;
+	color: $text_inactive;
 }
 
 ul {
@@ -135,7 +130,7 @@ ul {
 		border-right: 1px solid $line;
 		text-indent: 20px;
 		font-size: 12px;
-		color: $text_intactive;
+		color: $text_inactive;
 
 		p:first-of-type {
 			font-size: 22px;
@@ -172,7 +167,6 @@ ul {
 		}
 	}
 }
-
 
 
 
@@ -227,107 +221,77 @@ ul {
 	    position:relative;
 	    height:100%;
 	    width:100%;
-	    margin:0 0px;
-	    padding:0px 0px;
+	    margin:0 0;
+	    padding:0 0;
 
 		.project {
-
-			.columns {
+			.test {
 				display: -webkit-box;
 
-				.info_button {
-					width: 30px;
-					height: 30px;
-					position: absolute;
-					top: 0;
-					left: 10px;
-					z-index: 100;
-					background: black;
+				.media_unavailable {
+					-webkit-box-flex: 1;
+					text-align: center;
 				}
-	
-				.info_open {
-					width: 200px !important;
+
+				.slide_images {
+					-webkit-box-flex: 1;
+					height: 540px;
+					overflow: scroll;
+					-webkit-overflow-scrolling: touch;
+
+					img {
+						margin-bottom: 10px;
+					}
 				}
 
 				.info {
-					-webkit-box-orient: vertical;
-					-webkit-box-align: end;
-					width: 0;
-					padding: 0 50px 0 80px;
-					overflow: hidden;
-					-webkit-transition: 1s;
+					width: 200px;
+					border-left: 1px solid $line;
+					margin-left: 10px;
+					padding-left: 10px;
 
 					.title {
-						font-size: 26px;
+						font-size: 18px;
 						color: $text_active;
-						margin: 0 0 6px 0;
+						text-transform: uppercase;
 					}
 
 					.details {
-						width: 100%;
+						font-size: 12px;
+						color: $text_inactive;
+						text-transform: uppercase;
+
+						span {
+							margin-right: 4px;
+						}
+					}
+
+					.description {
 						height: 50px;
-						padding: 4px 0;
-						margin-bottom: 16px;
+						padding: 10px 10px 0 0;
+						line-height: 12px;
+						font-size: 12px;
+						font-style: italic;
+						color: $text_inactive;
+					}
+
+					.divider {
+						width: 20px;
+						position: relative;
+						top: 80px;
+						left: -10px;
 						border-top: 1px solid $line;
-						border-bottom: 1px solid $line;
-
-						table {
-							display: -webkit-box;
-							-webkit-box-pack: end;
-							width: 100%;
-							font-size: 12px;
-							text-align: right;
-
-							tr {
-								line-height: 14px;
-							}
-
-							th {
-								color: $table_header;
-							}
-
-							td {
-								color: $table_header;
-								padding-left: 20px;
-							}
-						}
 					}
-
-					.demo_button {
-						display: -webkit-box;
-						-webkit-box-align: center;
-						width: 200px;
-						height: 40px;
-						padding: 0 8px;
-						margin-bottom: 4px;
-						background: $line;
-
-						p {
-							-webkit-box-flex: 1;
-						}
-
-						img {
-							width: 20px;
-							height: 15px;
-							opacity: .2;
-						}
-					}
-				}
-
-				.slides {
-					display: -webkit-box;
-					-webkit-box-flex: 1;
-					margin-right: 50px;
 
 					.slide_map {
-						border-left: 1px solid $line;
+						padding-top: 30px;
 						font-size: 9px;
 						letter-spacing: 1px;
-						color: $text_intactive;
+						color: $text_inactive;
 
 						li {
 							display: -webkit-box;
-							-webkit-box-pack: end;
+							-webkit-box-pack: start;
 							line-height: 9px;
 							font-weight: bold;
 
@@ -343,19 +307,7 @@ ul {
 							}
 						}
 					}
-
-					.slide_images {
-						-webkit-box-flex: 1;
-						height: 500px;
-						overflow: scroll;
-						-webkit-overflow-scrolling: touch;
-
-						img {
-							margin-bottom: 10px;
-						}
-					}
 				}
-				
 			}
 		}
 	}

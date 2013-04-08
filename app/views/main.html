@@ -41,67 +41,6 @@
 	<img src="/styles/image/timeline.png">
 </div>
 
-<div class="view_projects view animated" ng-class="{visible:viewIndex==1}">
-	<div id="wrapper">
-	    <div id='slider' class='swipe'>
-	        <div>
-	        	<div class="project" ng-repeat="project in projects">
-	        		<div class="columns">
-	        			<div class="info_button" ng-tap="toggleInfo()"></div>
-
-			    		<div class="info" ng-class="{info_open:projectInfoVisible}">
-				    		<p class="title">{{project.name.toUpperCase()}}</p>
-				    		<div class="details">
-					    		<table>
-					    			<tbody>
-					    				<tr>
-					    					<th align="right">CLIENT</th>
-					    					<td>{{project.client}}</td>	
-					    				</tr>
-					    				<tr>
-					    					<th align="right">FORMAT</th>
-					    					<td>{{project.format}}</td>	
-					    				</tr>
-					    				<tr>
-					    					<th align="right">TECHNOLOGIES</th>
-					    					<td>{{project.platform}}</td>	
-					    				</tr>
-					    			</tbody>
-					    		</table>
-					    	</div>
-					    	<div class="demo_button" ng-repeat="demo in [1,2,3,4,5]">
-					    		<p>{{demo}}</p>
-					    		<img src="styles/image/icon/open_icon.png">
-					    	</div>
-			    		</div>
-
-			    		<div class="slides">
-			    			<ul class="slide_images">
-			    				<li class="slide_image" ng-repeat="slide in project.slides" data-index="{{$index}}" >
-			    					<img ng-src="{{slide.image}}">
-			    				</li>
-			    			</ul>
-			    			<ul class="slide_map">
-			    				<li ng-repeat="slide in project.slides">
-			    					<div class="marker" ng-class="{marker_selected:slideIndex == $index}"></div>
-			    					<p>ITERATION 01</p>
-			    				</li>
-			    			</ul>
-			    		</div>
-		        	</div>
-		    	</div>
-	        </div>
-	    </div>
-	</div>
-
-	<div id="swipe_projects_prev" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == 0}" ng-tap="swipe(-1)">
-		<img ng-src="styles/image/icon/arrow_left.png">
-	</div>
-	<div id="swipe_projects_next" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == projects.length-1}" ng-tap="swipe(1)">
-		<img ng-src="styles/image/icon/arrow_right.png">
-	</div>
-</div>
-
 <div class="view_filters view animated" ng-class="{visible:viewIndex>1}">
 	<div class="left_column">
 		<div class="list" ng-class="{list_visible:viewIndex==2}">
@@ -144,5 +83,37 @@
 				<img ng-src="{{project.thumb}}" ng-class="{thumb_visible:selectedFilter}">
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="view_projects view animated" ng-class="{visible:viewIndex==1}">
+	<div id="wrapper">
+	    <div id='slider' class='swipe'>
+	        <div>
+	        	<div class="project" ng-repeat="project in projects">
+	        		<div class="test">
+	        			<div class="media_unavailable" ng-show="project.slides.length == 0">MEDIA UNAVAILABLE</div>
+		        		<ul class="slide_images scroll" ng-show="project.slides.length > 0">
+		    				<li class="slide_image" ng-repeat="slide in project.slides" data-index="{{$index}}" >
+		    					<img ng-src="{{slide.image}}">
+		    				</li>
+		    			</ul>
+
+		        		<div class="info">
+		    				<p class="title">{{project.name}}</p>
+		    				<p class="details"><span>{{project.client}}</span><span>{{project.format}}</span><span>{{project.platform}}</span></p>
+		    				<p class="description">{{project.description}}</p>
+		        		</div>
+	    			</div>
+		    	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="swipe_projects_prev" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == 0}" ng-tap="swipe(-1)">
+		<img ng-src="styles/image/icon/arrow_left.png">
+	</div>
+	<div id="swipe_projects_next" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == projects.length-1}" ng-tap="swipe(1)">
+		<img ng-src="styles/image/icon/arrow_right.png">
 	</div>
 </div>
