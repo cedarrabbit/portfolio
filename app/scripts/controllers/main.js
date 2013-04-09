@@ -244,7 +244,17 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 				{image:'styles/image/archsearch_01.jpg'},
 				{image:'styles/image/archsearch_02.jpg'}
 			]
-		}
+		},
+		{id:'p28', date:'2001',platform:'Director',format:'CDROM',client:'KLA Tencor',name:'Promotional CDROM',description:'Promotional CDROM',thumb:'',slides:[]},
+		{id:'p29', date:'2001',platform:'Director',format:'CDROM',client:'Veritas',name:'Promotional CDROM',description:'Promotional CDROM',thumb:'',slides:[]},
+		{id:'p30', date:'2001',platform:'Director',format:'CDROM',client:'NetApp',name:'Promotional CDROM',description:'Promotional CDROM',thumb:'',slides:[]},
+		{id:'p31', date:'2000',platform:'PeopleSoft',format:'Desktop App',client:'PeopleSoft',name:'PeopleSoft 8',description:'CRM Software',thumb:'',
+			slides:[{image:'styles/image/peoplesoft_01.png'}]
+		},
+		{id:'p32', date:'1999',platform:'Director',format:'CDROM',client:'Indiana University',name:'Rigid Modification',description:'e-Learning CDROM for optometry students',thumb:'',slides:[]},
+		{id:'p33', date:'1999',platform:'Director',format:'CDROM',client:'Indiana University',name:'EyeQuest',description:'Promotional CDROM',thumb:'',slides:[]},
+		{id:'p34', date:'1998',platform:'Director',format:'CDROM',client:'Indiana University',name:'Contact Lens Series',description:'e-Learning CDROM for optometry students',thumb:'',slides:[]},
+		{id:'p35', date:'1997',platform:'Director',format:'CDROM',client:'Indiana University',name:'Virtual Visit',description:'QTVR CDROM for incoming students',thumb:'',slides:[]},
 	];
 
 	// THIS SHOULD BE ACCOMPLISHED VIA DATA;
@@ -271,6 +281,10 @@ joshuaApp.controller('MainCtrl', function($scope, $timeout) {
 		"Toyota":"/styles/image/logo/logo_toyota.jpg",
 		"The Writing Team":"/styles/image/logo/logo_twt.jpg",
 		"Indiana University":"/styles/image/logo/logo_iu.jpg",
+		"Veritas":"/styles/image/logo/logo_veritas.jpg",
+		"KLA Tencor":"/styles/image/logo/logo_kla.jpg",
+		"NetApp":"/styles/image/logo/logo_netapp.jpg",
+		"PeopleSoft":"/styles/image/logo/logo_peoplesoft.jpg",
 	}
 
 	$scope.clients = _.uniq(_.pluck($scope.projects,'client'));
