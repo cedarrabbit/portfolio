@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		<div class="list" ng-class="{list_visible:viewIndex==5}">
-			<div class="item_chart" ng-class="{filter_selected:selectedIndustry==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)">
+			<div class="item_chart" ng-class="{filter_selected:selectedFilter==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)">
 				<div class="chart" data-type="industry" filter-vis></div>
 				<div class="perc">
 					<span>{{perc}}</span><span>%</span>
