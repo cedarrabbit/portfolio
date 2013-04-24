@@ -1,4 +1,24 @@
-<div class="header">
+<header>
+	<p class="name">JOSHUA DANIEL</p>
+</header>
+
+<section class="project_list">
+	<section class="project" ng-repeat="project in projects">
+		<div class="info">
+			<p class="title">{{project.name}}</p>
+			<p class="detail">{{project.date}} {{project.client}}</p>
+			<p class="detail">{{project.format}} {{project.platform}}</p>
+			<p>{{project.description}}</p>
+		</div>
+		<ul class="media_list">
+			<li ng-repeat="slide in project.slides">
+				<img ng-src="{{slide.image}}">
+			</li>
+		</ul>
+	</section>
+</section>
+
+<!-- <div class="header">
 	<div class="name">{{persona.name}} <span>{{persona.title}}</span></div>
 </div>
 
@@ -117,3 +137,4 @@
 		<img ng-src="styles/image/icon/arrow_right.png">
 	</div>
 </div>
+ -->

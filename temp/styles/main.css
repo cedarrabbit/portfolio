@@ -6134,19 +6134,7 @@ a.label:hover, a.badge:hover {
   box-sizing: border-box;
 }
 
-/* line 20, ../../app/styles/main.scss */
-*:not(html) {
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-/* line 25, ../../app/styles/main.scss */
-p {
-  margin: 0;
-  padding: 0;
-}
-
-/* line 31, ../../app/styles/main.scss */
+/* line 34, ../../app/styles/main.scss */
 body,
 .container {
   width: 100%;
@@ -6157,495 +6145,91 @@ body,
   color: #aeaeac;
 }
 
-/* line 40, ../../app/styles/main.scss */
+/* line 43, ../../app/styles/main.scss */
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* line 44, ../../app/styles/main.scss */
-.header {
-  height: 34px;
-  background: black;
-  padding: 0 20px;
-  border-top: 1px solid #323232;
-}
-/* line 50, ../../app/styles/main.scss */
-.header .name {
-  position: absolute;
-  top: 10px;
-  color: white;
-  font-size: 18px;
-}
-/* line 56, ../../app/styles/main.scss */
-.header .name span {
-  font-size: 14px;
-  color: #cccccc;
-}
-
-/* line 63, ../../app/styles/main.scss */
-.menu {
-  display: -webkit-box;
-  -webkit-box-align: end;
-  position: relative;
-  z-index: 1;
-  height: 104px;
-  background: #eeeeee;
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-}
-/* line 72, ../../app/styles/main.scss */
-.menu .marker {
-  width: 20px;
-  height: 12px;
-  position: absolute;
-  left: 22px;
-  bottom: -9px;
-  -webkit-filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.3));
-  -webkit-transition: .3s;
-}
-/* line 81, ../../app/styles/main.scss */
-.menu .marker svg {
-  fill: #eeeeee;
-}
-/* line 86, ../../app/styles/main.scss */
-.menu .marker_selected {
-  color: black !important;
-}
-/* line 90, ../../app/styles/main.scss */
-.menu .marker_selected_0 {
-  -webkit-transform: translate3d(533px, 0, 0);
-}
-/* line 94, ../../app/styles/main.scss */
-.menu .marker_selected_1 {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-/* line 98, ../../app/styles/main.scss */
-.menu .marker_selected_2 {
-  -webkit-transform: translate3d(100px, 0, 0);
-}
-/* line 102, ../../app/styles/main.scss */
-.menu .marker_selected_3 {
-  -webkit-transform: translate3d(200px, 0, 0);
-}
-/* line 106, ../../app/styles/main.scss */
-.menu .marker_selected_4 {
-  -webkit-transform: translate3d(300px, 0, 0);
-}
-/* line 110, ../../app/styles/main.scss */
-.menu .marker_selected_5 {
-  -webkit-transform: translate3d(400px, 0, 0);
-}
-/* line 115, ../../app/styles/main.scss */
-.menu .item,
-.menu .timeline {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  padding-bottom: 6px;
-}
-/* line 120, ../../app/styles/main.scss */
-.menu .item p,
-.menu .timeline p {
+/* line 49, ../../app/styles/main.scss */
+p {
   padding: 0;
   margin: 0;
 }
-/* line 126, ../../app/styles/main.scss */
-.menu .item {
-  width: 100px;
-  height: 68px;
-  -webkit-box-pack: end;
-  border-right: 1px solid #dddddd;
-  text-indent: 20px;
-  font-size: 12px;
-  color: #aeaeac;
-}
-/* line 135, ../../app/styles/main.scss */
-.menu .item p:first-of-type {
-  font-size: 22px;
-  font-family: 'Michroma', sans-serif;
-}
-/* line 141, ../../app/styles/main.scss */
-.menu .timeline {
-  -webkit-box-orient: horizontal;
-  -webkit-box-flex: 1;
-  margin-left: 50px;
-  font-size: 9px;
-  font-family: 'Michroma', sans-serif;
-}
-/* line 148, ../../app/styles/main.scss */
-.menu .timeline .year {
+
+/* line 54, ../../app/styles/main.scss */
+header {
   display: -webkit-box;
-  -webkit-box-orient: vertical;
   -webkit-box-align: center;
-  -webkit-box-pack: end;
-  margin-right: 10px;
-}
-/* line 155, ../../app/styles/main.scss */
-.menu .timeline .year .dot {
-  -webkit-border-radius: 4px;
-  width: 8px;
-  height: 8px;
-  background: #dddddd;
-  margin-top: 2px;
-}
-/* line 164, ../../app/styles/main.scss */
-.menu .timeline .year .selected {
-  background: #d90000;
-}
-
-/* line 174, ../../app/styles/main.scss */
-.view {
-  width: 100%;
-  position: absolute;
-  top: 140px;
-  bottom: 0;
-  margin-top: 50px;
-  opacity: 0;
-  -webkit-transition: .3s;
-  pointer-events: none;
-}
-
-/* line 185, ../../app/styles/main.scss */
-.visible {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* line 190, ../../app/styles/main.scss */
-.animated {
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform-style: flat;
-}
-
-/* line 200, ../../app/styles/main.scss */
-.view_timeline {
-  display: -webkit-box;
-  -webkit-box-pack: center;
-}
-/* line 204, ../../app/styles/main.scss */
-.view_timeline img {
-  margin: 0 auto;
-}
-
-/* line 211, ../../app/styles/main.scss */
-.view_projects #wrapper {
-  position: absolute;
-  margin: 0 auto;
-  min-width: 320px;
-  max-width: 1200px;
-  height: 100%;
-  width: 100%;
-}
-/* line 220, ../../app/styles/main.scss */
-.view_projects .swipe {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin: 0 0;
-  padding: 0 0;
-}
-/* line 228, ../../app/styles/main.scss */
-.view_projects .swipe .project .test {
-  display: -webkit-box;
-}
-/* line 231, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .media_unavailable {
-  -webkit-box-flex: 1;
-  text-align: center;
-}
-/* line 236, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .slide_images {
-  -webkit-box-flex: 1;
-  height: 540px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-/* line 242, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .slide_images img {
-  margin-bottom: 10px;
-}
-/* line 247, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info {
-  width: 200px;
-  border-left: 1px solid #dddddd;
-  margin-left: 10px;
-  padding-left: 10px;
-}
-/* line 253, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .title {
-  font-size: 18px;
-  color: #6c6c6c;
-  text-transform: uppercase;
-}
-/* line 259, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .details {
-  font-size: 12px;
-  color: #aeaeac;
-  text-transform: uppercase;
-}
-/* line 264, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .details span {
-  margin-right: 4px;
-}
-/* line 269, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .description {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 50px;
-  padding: 10px 10px 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+/* line 68, ../../app/styles/main.scss */
+header .name {
+  font-size: 18px;
+}
+
+/* line 73, ../../app/styles/main.scss */
+.project_list {
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+/* line 78, ../../app/styles/main.scss */
+.project_list .project {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 700px;
+}
+/* line 85, ../../app/styles/main.scss */
+.project_list .project .info {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+/* line 94, ../../app/styles/main.scss */
+.project_list .project .info .title {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: black;
+}
+/* line 100, ../../app/styles/main.scss */
+.project_list .project .info .detail {
   line-height: 12px;
   font-size: 12px;
-  font-style: italic;
-  color: #aeaeac;
 }
-/* line 278, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .divider {
-  width: 20px;
-  position: relative;
-  top: 80px;
-  left: -10px;
-  border-top: 1px solid #dddddd;
-}
-/* line 286, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .slide_map {
-  padding-top: 30px;
-  font-size: 9px;
-  letter-spacing: 1px;
-  color: #aeaeac;
-}
-/* line 292, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .slide_map li {
+/* line 110, ../../app/styles/main.scss */
+.project_list .project .media_list {
   display: -webkit-box;
-  -webkit-box-pack: start;
-  line-height: 9px;
-  font-weight: bold;
-}
-/* line 298, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .slide_map li .marker {
-  width: 10px;
-  height: 10px;
-  margin: 0 4px 4px 4px;
-  background: #dddddd;
-}
-/* line 305, ../../app/styles/main.scss */
-.view_projects .swipe .project .test .info .slide_map li .marker_selected {
-  background: #cccccc;
-}
-/* line 317, ../../app/styles/main.scss */
-.view_projects #swipe_projects_prev,
-.view_projects #swipe_projects_next {
-  position: absolute;
-  top: 250px;
-  opacity: .3;
-}
-/* line 323, ../../app/styles/main.scss */
-.view_projects #swipe_projects_prev {
-  left: 10px;
-}
-/* line 327, ../../app/styles/main.scss */
-.view_projects #swipe_projects_next {
-  right: 10px;
-}
-/* line 331, ../../app/styles/main.scss */
-.view_projects .swipe_project_arrow_hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* line 337, ../../app/styles/main.scss */
-.view_filters {
-  display: -webkit-box;
-}
-/* line 340, ../../app/styles/main.scss */
-.view_filters .left_column {
-  width: 506px;
-  height: 100%;
-  border-right: 1px solid #dddddd;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-/* line 347, ../../app/styles/main.scss */
-.view_filters .left_column .list {
-  margin: 0 auto;
-  display: none;
-  pointer-events: none;
-}
-/* line 352, ../../app/styles/main.scss */
-.view_filters .left_column .list .item {
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  width: 100px;
-  height: 50px;
-  margin: 4px;
-  background: #ccc;
-  color: rgba(0, 0, 0, 0.5);
-}
-/* line 363, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_logo {
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  width: 90px;
-  height: 60px;
-  margin: 4px;
-  border: 1px solid white;
-  background: white;
-  padding: 8px;
-}
-/* line 374, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_logo img {
-  width: 100%;
-  height: auto;
-  opacity: .5;
-}
-/* line 381, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_chart {
-  width: 150px;
-  height: 150px;
-  margin: 4px;
-}
-/* line 386, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_chart .perc {
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  width: 100%;
-  position: absolute;
-  top: 70px;
-  font-size: 20px;
-  font-weight: normal;
-}
-/* line 395, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_chart .perc span:first-of-type {
-  font-family: 'Michroma', sans-serif;
-  font-size: 30px;
-}
-/* line 400, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_chart .perc span:last-of-type {
-  font-size: 20px;
-}
-/* line 405, ../../app/styles/main.scss */
-.view_filters .left_column .list .item_chart .title {
-  width: 65px;
-  position: absolute;
-  top: 120px;
-  left: 40px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 13px;
-}
-/* line 416, ../../app/styles/main.scss */
-.view_filters .left_column .list .client_selected {
-  border: 1px solid #d90000;
-  color: #d90000;
-}
-/* line 422, ../../app/styles/main.scss */
-.view_filters .left_column .list_visible {
-  display: block;
-  pointer-events: all;
-}
-/* line 429, ../../app/styles/main.scss */
-.view_filters .right_column {
   -webkit-box-flex: 1;
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  padding-left: 180px;
 }
-/* line 432, ../../app/styles/main.scss */
-.view_filters .right_column .list {
-  margin: 0 auto;
-}
-/* line 435, ../../app/styles/main.scss */
-.view_filters .right_column .list .item {
-  width: 100px;
-  height: 50px;
-  margin: 4px;
-  background: #ccc;
-}
-/* line 442, ../../app/styles/main.scss */
-.view_filters .right_column .list .item_thumb {
+/* line 117, ../../app/styles/main.scss */
+.project_list .project .media_list li {
   display: -webkit-box;
-  -webkit-box-pack: center;
   -webkit-box-align: center;
-  width: 77px;
-  height: 60px;
-  margin: 4px;
-  border: 1px solid white;
-  background: #dddddd;
+  -webkit-box-pack: center;
+  width: 770px;
+  height: 514px;
+  margin: 50px 50px;
 }
-/* line 452, ../../app/styles/main.scss */
-.view_filters .right_column .list .item_thumb .thumb_visible {
-  visibility: visible;
-}
-/* line 456, ../../app/styles/main.scss */
-.view_filters .right_column .list .item_thumb img {
-  width: auto;
-  height: 100%;
-  -webkit-filter: grayscale(100%);
-  opacity: .5;
-  visibility: hidden;
-}
-
-/* line 470, ../../app/styles/main.scss */
-.chart {
-  -webkit-transform: rotate(225deg);
-}
-
-/* line 474, ../../app/styles/main.scss */
-.chart_track {
-  fill: #dddddd;
-}
-
-/* line 478, ../../app/styles/main.scss */
-.chart_val {
-  fill: #6d6d6d;
-}
-
-/* line 483, ../../app/styles/main.scss */
-.filter_selected .chart_val,
-.filter_selected .perc {
-  color: #d90000;
-  fill: #d90000;
-}
-
-/* line 502, ../../app/styles/main.scss */
-#isotope_container {
-  margin: 0 auto;
-  padding-right: 60px;
-}
-
-/* line 508, ../../app/styles/main.scss */
-.isotope,
-.isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-}
-
-/* line 517, ../../app/styles/main.scss */
-.isotope {
-  -webkit-transition-property: height, width;
-  -moz-transition-property: height, width;
-  -ms-transition-property: height, width;
-  -o-transition-property: height, width;
-  transition-property: height, width;
-}
-
-/* line 525, ../../app/styles/main.scss */
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -ms-transition-property: -ms-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  transition-property: transform, opacity;
-}
-
-/**** disabling Isotope CSS3 transitions ****/
-/* line 537, ../../app/styles/main.scss */
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -ms-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  transition-duration: 0s;
+/* line 127, ../../app/styles/main.scss */
+.project_list .project .media:first-of-type {
+  margin-left: 300px;
 }
