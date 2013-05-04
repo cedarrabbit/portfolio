@@ -6158,78 +6158,191 @@ p {
   margin: 0;
 }
 
-/* line 54, ../../app/styles/main.scss */
+/* line 57, ../../app/styles/main.scss */
 header {
   display: -webkit-box;
-  -webkit-box-align: center;
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
   right: 0;
   height: 50px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0 20px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 40px;
 }
 /* line 68, ../../app/styles/main.scss */
-header .name {
-  font-size: 18px;
+header section:first-of-type .name {
+  font-size: 40px;
+  line-height: 34px;
+  color: #444444;
+}
+/* line 74, ../../app/styles/main.scss */
+header section:first-of-type .title {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #acacae;
+}
+/* line 81, ../../app/styles/main.scss */
+header section:last-of-type {
+  -webkit-box-flex: 1;
+  padding: 0 50px 0 95px;
+  font-size: 12px;
+  line-height: 17px;
+  color: rgba(172, 172, 174, 0.6);
 }
 
-/* line 73, ../../app/styles/main.scss */
+/* line 90, ../../app/styles/main.scss */
 .project_list {
-  margin-top: 50px;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 140px;
+  right: 95px;
+  bottom: 0;
+  left: 40px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
-/* line 78, ../../app/styles/main.scss */
-.project_list .project {
+/* line 101, ../../app/styles/main.scss */
+.project_list .projects .project {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  height: 700px;
+  width: 100%;
+  margin-bottom: 130px;
 }
-/* line 85, ../../app/styles/main.scss */
-.project_list .project .info {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  width: 180px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
+/* line 107, ../../app/styles/main.scss */
+.project_list .projects .project .info {
+  width: 230px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: .5s;
 }
-/* line 94, ../../app/styles/main.scss */
-.project_list .project .info .title {
-  font-size: 16px;
+/* line 112, ../../app/styles/main.scss */
+.project_list .projects .project .info .title {
+  font-size: 20px;
   text-transform: uppercase;
-  color: black;
+  padding-top: 8px;
+  color: #444444;
 }
-/* line 100, ../../app/styles/main.scss */
-.project_list .project .info .detail {
-  line-height: 12px;
+/* line 119, ../../app/styles/main.scss */
+.project_list .projects .project .info .detail {
+  line-height: 20px;
+  text-transform: uppercase;
   font-size: 12px;
 }
-/* line 110, ../../app/styles/main.scss */
-.project_list .project .media_list {
+/* line 125, ../../app/styles/main.scss */
+.project_list .projects .project .info .description {
+  padding-top: 20px;
+}
+/* line 131, ../../app/styles/main.scss */
+.project_list .projects .project .media_list {
+  -webkit-box-flex: 1;
+  height: 400px;
+  margin: 0 14px 0 95px;
+  background: #aeaeac;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* line 160, ../../app/styles/main.scss */
+.filters {
+  display: -webkit-box;
+  min-width: 50px;
+  position: absolute;
+  top: 140px;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.5);
+}
+/* line 170, ../../app/styles/main.scss */
+.filters .timeline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  width: 50px;
+  height: 100%;
+  padding-left: 10px;
+}
+/* line 177, ../../app/styles/main.scss */
+.filters .timeline .map {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: red;
+}
+/* line 185, ../../app/styles/main.scss */
+.filters .timeline .project {
   display: -webkit-box;
   -webkit-box-flex: 1;
-  -webkit-overflow-scrolling: touch;
-  overflow: scroll;
-  padding-left: 180px;
+  margin-bottom: 1px;
 }
-/* line 117, ../../app/styles/main.scss */
-.project_list .project .media_list li {
-  display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
-  width: 770px;
-  height: 514px;
-  margin: 50px 50px;
+/* line 190, ../../app/styles/main.scss */
+.filters .timeline .project .marker {
+  width: 4px;
+  background: #eee;
 }
-/* line 127, ../../app/styles/main.scss */
-.project_list .project .media:first-of-type {
-  margin-left: 300px;
+/* line 197, ../../app/styles/main.scss */
+.filters .timeline .project .date {
+  font-size: 10px;
+  color: #ddd;
+  line-height: 10px;
+  padding-left: 4px;
+}
+/* line 206, ../../app/styles/main.scss */
+.filters .test {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  -webkit-transition: width .5s, opacity 2s;
+}
+
+/* line 216, ../../app/styles/main.scss */
+.filters_open .test {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  background: red;
+}
+
+/* line 686, ../../app/styles/main.scss */
+#isotope_container {
+  margin: 0 auto;
+  padding-right: 60px;
+}
+
+/* line 692, ../../app/styles/main.scss */
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+/* line 701, ../../app/styles/main.scss */
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+
+/* line 709, ../../app/styles/main.scss */
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+/* line 721, ../../app/styles/main.scss */
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
 }

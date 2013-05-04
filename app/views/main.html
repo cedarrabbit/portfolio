@@ -1,140 +1,40 @@
 <header>
-	<p class="name">JOSHUA DANIEL</p>
+	<section>
+		<p class="name">JOSHUA DANIEL</p>
+		<p class="title">USER EXPERIENCE TECHNOLOGIST</p>
+	</section>
+	<section>
+		<p>/bad'ass/ designer | developer</p>
+		<p>the glue between designer, developers and product managers; capable of quickly producing prototypes to prove or disprove design concepts the glue between designer, developers and product managers; capable of quickly producing prototypes to prove or disprove design concepts</p>
+	</section>
 </header>
 
-<section class="project_list">
-	<section class="project" ng-repeat="project in projects">
-		<div class="info">
-			<p class="title">{{project.name}}</p>
-			<p class="detail">{{project.date}} {{project.client}}</p>
-			<p class="detail">{{project.format}} {{project.platform}}</p>
-			<p>{{project.description}}</p>
-		</div>
-		<ul class="media_list">
-			<li ng-repeat="slide in project.slides">
-				<img ng-src="{{slide.image}}">
-			</li>
-		</ul>
-	</section>
+<section class="project_list" scroll-spy>
+	<div class="projects">
+		<section class="project" ng-repeat="project in projects">
+			<div class="info">
+				<section class="title">{{project.name}}</section>
+				<section>
+					<p class="detail">{{project.industry}} {{project.format}} {{project.client}} {{project.platform}}</p>
+				</section>
+				<section class="description">
+					<p>{{project.description}}</p>
+				</section>
+			</div>
+			<ul class="media_list">
+			</ul>
+		</section>
+	</div>
 </section>
 
-<!-- <div class="header">
-	<div class="name">{{persona.name}} <span>{{persona.title}}</span></div>
+<div class="filters" ng-click="filtering = !filtering" ng-class="{filters_open:filtering}">
+	<div class="timeline">
+		<div class="map" scroll-map></div>
+		<div class="project" ng-repeat="project in projects">
+			<div class="marker"></div>
+			<p class="date">{{project.date}}</p>
+		</div>
+	</div>
+
+	<div class="test"></div>
 </div>
-
-<div class="menu">
-	<div class="marker animated" ng-class="{marker_selected_0:viewIndex==0,marker_selected_1:viewIndex==1,marker_selected_2:viewIndex==2,marker_selected_3:viewIndex==3,marker_selected_4:viewIndex==4,marker_selected_5:viewIndex==5}">
-		<svg >
-			<polygon points="0,0 20,0 10,12"/>
-		</svg>
-	</div>
-	
-	<div class="item" ng-class="{marker_selected:viewIndex==1}" ng-tap="viewIndex=1">
-		<p>{{projects.length}}</p>
-		<p>PROJECTS</p>
-	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==2}" ng-tap="viewIndex=2">
-		<p>{{clients.length}}</p>
-		<p>CLIENTS</p>
-	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==3}" ng-tap="viewIndex=3">
-		<p>{{technologies.length}}</p>
-		<p>TECHNOLOGIES</p>
-	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==4}" ng-tap="viewIndex=4">
-		<p>{{formats.length}}</p>
-		<p>FORMATS</p>
-	</div>
-	<div class="item" ng-class="{marker_selected:viewIndex==5}" ng-tap="viewIndex=5">
-		<p>{{industries.length}}</p>
-		<p>INDUSTRIES</p>
-	</div>
-	<div class="timeline" timeline ng-tap="viewIndex=0">
-		<div class="year" ng-repeat="item in timeline">
-			<div class="dot" ng-class="{selected:selectedProjects.indexOf(project.id)!=-1}" ng-repeat="project in item"></div>
-			<p>{{timeline_labels[$index]}}</p>
-		</div>
-	</div>
-</div>
-
-<div class="view_timeline view animated" ng-class="{visible:viewIndex==0}">
-	<img src="/styles/image/timeline.png">
-</div>
-
-<div class="view_filters view animated" ng-class="{visible:viewIndex>1}">
-	<div class="left_column">
-		<div class="list" ng-class="{list_visible:viewIndex==2}">
-			<div class="item_logo" ng-class="{client_selected:selectedFilter==client}" ng-repeat="client in clients" ng-tap="clientSelection(client)">
-				<img ng-src="{{logos[client]}}">
-			</div>
-		</div>
-		<div class="list" ng-class="{list_visible:viewIndex==3}">
-			<div class="item_chart" ng-class="{filter_selected:selectedFilter==platform}" ng-repeat="platform in technologies" ng-tap="techSelection(platform)">
-				<div class="chart" data-type="platform" filter-vis></div>
-				<div class="perc">
-					<span>{{perc}}</span><span>%</span>
-				</div>
-				<p class="title">{{title}}</p>
-			</div>
-		</div>
-		<div class="list" ng-class="{list_visible:viewIndex==4}">
-			<div class="item_chart" ng-class="{filter_selected:selectedFilter==format}" ng-repeat="format in formats" ng-tap="formatSelection(format)">
-				<div class="chart" data-type="format" filter-vis></div>
-				<div class="perc">
-					<span>{{perc}}</span><span>%</span>
-				</div>
-				<p class="title">{{title}}</p>
-			</div>
-		</div>
-		<div class="list" ng-class="{list_visible:viewIndex==5}">
-			<div class="item_chart" ng-class="{filter_selected:selectedFilter==industry}" ng-repeat="industry in industries" ng-tap="industrySelection(industry)">
-				<div class="chart" data-type="industry" filter-vis></div>
-				<div class="perc">
-					<span>{{perc}}</span><span>%</span>
-				</div>
-				<p class="title">{{title}}</p>
-			</div>
-		</div>
-	</div>
-	
-	<div class="right_column">
-		<div id="project_list" class="list"> 
-			<div class="item_thumb" ng-class="projectIdClass(project)" ng-repeat="project in projects" ng-tap="projectSelection(project)">
-				<img ng-src="{{project.thumb}}" ng-class="{thumb_visible:selectedFilter}">
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="view_projects view animated" ng-class="{visible:viewIndex==1}">
-	<div id="wrapper">
-	    <div id='slider' class='swipe'>
-	        <div>
-	        	<div class="project" ng-repeat="project in projects">
-	        		<div class="test">
-	        			<div class="media_unavailable" ng-show="project.slides.length == 0">MEDIA UNAVAILABLE</div>
-		        		<ul class="slide_images scroll" ng-show="project.slides.length > 0">
-		    				<li class="slide_image" ng-repeat="slide in project.slides" data-index="{{$index}}" >
-		    					<img ng-src="{{slide.image}}">
-		    				</li>
-		    			</ul>
-
-		        		<div class="info">
-		    				<p class="title">{{project.name}}</p>
-		    				<p class="details"><span>{{project.client}}</span><span>{{project.format}}</span><span>{{project.platform}}</span></p>
-		    				<p class="description">{{project.description}}</p>
-		        		</div>
-	    			</div>
-		    	</div>
-	        </div>
-	    </div>
-	</div>
-
-	<div id="swipe_projects_prev" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == 0}" ng-tap="swipe(-1)">
-		<img ng-src="styles/image/icon/arrow_left.png">
-	</div>
-	<div id="swipe_projects_next" ng-show="!isMobile" ng-class="{swipe_project_arrow_hidden:projectIndex == projects.length-1}" ng-tap="swipe(1)">
-		<img ng-src="styles/image/icon/arrow_right.png">
-	</div>
-</div>
- -->
