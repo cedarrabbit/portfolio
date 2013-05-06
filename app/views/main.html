@@ -10,7 +10,7 @@
 </header>
 
 <section class="project_list" scroll-spy>
-	<div class="projects">
+	<div class="projects" ng-class="{projects_faded:filtering}">
 		<section class="project" ng-repeat="project in projects">
 			<div class="info">
 				<section class="title">{{project.name}}</section>
