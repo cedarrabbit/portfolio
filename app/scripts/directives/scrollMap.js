@@ -11,6 +11,7 @@ joshuaApp.directive('scrollMap', function($timeout, model) {
 
         $timeout(function(){
             scope.$watch('model.projectsPercentViewable', function(){
+                console.log('y')
                 el.css('height',model.projectsPercentViewable*timelineHeight);
             })
         })

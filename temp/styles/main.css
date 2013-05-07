@@ -6191,6 +6191,11 @@ header section:last-of-type {
 }
 
 /* line 102, ../../app/styles/main.scss */
+.project_list::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+/* line 106, ../../app/styles/main.scss */
 .project_list {
   position: absolute;
   top: 140px;
@@ -6199,46 +6204,49 @@ header section:last-of-type {
   left: 40px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  font-family: Helvetica, Arial, sans-serif;
 }
-/* line 111, ../../app/styles/main.scss */
+/* line 116, ../../app/styles/main.scss */
 .project_list .projects_faded {
   opacity: .1;
 }
-/* line 115, ../../app/styles/main.scss */
+/* line 120, ../../app/styles/main.scss */
 .project_list .projects {
   -webkit-transition: .2s;
 }
-/* line 118, ../../app/styles/main.scss */
+/* line 123, ../../app/styles/main.scss */
 .project_list .projects .project {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   width: 100%;
   margin-bottom: 130px;
 }
-/* line 124, ../../app/styles/main.scss */
+/* line 129, ../../app/styles/main.scss */
 .project_list .projects .project .info {
   width: 230px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transition: .5s;
 }
-/* line 129, ../../app/styles/main.scss */
+/* line 134, ../../app/styles/main.scss */
 .project_list .projects .project .info .title {
-  font-size: 20px;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 23px;
   padding-top: 8px;
-  color: #444444;
-}
-/* line 136, ../../app/styles/main.scss */
-.project_list .projects .project .info .detail {
-  line-height: 20px;
-  text-transform: uppercase;
-  font-size: 12px;
+  color: #333;
 }
 /* line 142, ../../app/styles/main.scss */
+.project_list .projects .project .info .detail, .project_list .projects .project .info .description {
+  font-size: 12px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+/* line 149, ../../app/styles/main.scss */
 .project_list .projects .project .info .description {
   padding-top: 20px;
 }
-/* line 148, ../../app/styles/main.scss */
+/* line 155, ../../app/styles/main.scss */
 .project_list .projects .project .media_list {
   -webkit-box-flex: 1;
   height: 400px;
@@ -6247,7 +6255,7 @@ header section:last-of-type {
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* line 177, ../../app/styles/main.scss */
+/* line 184, ../../app/styles/main.scss */
 .filters {
   display: -webkit-box;
   min-width: 50px;
@@ -6258,7 +6266,7 @@ header section:last-of-type {
   margin-bottom: 10px;
   background: rgba(255, 255, 255, 0.5);
 }
-/* line 187, ../../app/styles/main.scss */
+/* line 194, ../../app/styles/main.scss */
 .filters .timeline {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -6266,7 +6274,7 @@ header section:last-of-type {
   height: 100%;
   padding-left: 10px;
 }
-/* line 194, ../../app/styles/main.scss */
+/* line 201, ../../app/styles/main.scss */
 .filters .timeline .map {
   position: absolute;
   top: 0;
@@ -6274,25 +6282,25 @@ header section:last-of-type {
   height: 50px;
   background: rgba(0, 0, 0, 0.05);
 }
-/* line 202, ../../app/styles/main.scss */
+/* line 209, ../../app/styles/main.scss */
 .filters .timeline .project {
   display: -webkit-box;
   -webkit-box-flex: 1;
   margin-bottom: 1px;
 }
-/* line 207, ../../app/styles/main.scss */
+/* line 214, ../../app/styles/main.scss */
 .filters .timeline .project .marker {
   width: 4px;
   background: #eee;
 }
-/* line 214, ../../app/styles/main.scss */
+/* line 221, ../../app/styles/main.scss */
 .filters .timeline .project .date {
   font-size: 10px;
   color: #ddd;
   line-height: 10px;
   padding-left: 4px;
 }
-/* line 223, ../../app/styles/main.scss */
+/* line 230, ../../app/styles/main.scss */
 .filters .test {
   width: 0px;
   height: 0px;
@@ -6300,7 +6308,7 @@ header section:last-of-type {
   -webkit-transition: width .5s, opacity 2s;
 }
 
-/* line 233, ../../app/styles/main.scss */
+/* line 240, ../../app/styles/main.scss */
 .filters_open .test {
   width: 400px;
   height: 100px;
@@ -6308,35 +6316,13 @@ header section:last-of-type {
   background: rgba(0, 0, 0, 0.2);
 }
 
-/* line 694, ../../app/styles/main.scss */
-.swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
-}
-
-/* line 699, ../../app/styles/main.scss */
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-
-/* line 703, ../../app/styles/main.scss */
-.swipe-wrap > div {
-  float: left;
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background: red;
-}
-
-/* line 718, ../../app/styles/main.scss */
+/* line 706, ../../app/styles/main.scss */
 #isotope_container {
   margin: 0 auto;
   padding-right: 60px;
 }
 
-/* line 724, ../../app/styles/main.scss */
+/* line 712, ../../app/styles/main.scss */
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -6347,7 +6333,7 @@ header section:last-of-type {
   transition-duration: 0.2s;
 }
 
-/* line 733, ../../app/styles/main.scss */
+/* line 721, ../../app/styles/main.scss */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -6356,7 +6342,7 @@ header section:last-of-type {
   transition-property: height, width;
 }
 
-/* line 741, ../../app/styles/main.scss */
+/* line 729, ../../app/styles/main.scss */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -6366,7 +6352,7 @@ header section:last-of-type {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-/* line 753, ../../app/styles/main.scss */
+/* line 741, ../../app/styles/main.scss */
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
